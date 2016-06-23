@@ -10,3 +10,7 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.pdb
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Blog_classtable_added.resources
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csproj.GenerateResource.Cache
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.tables_for_blogDB_added.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_between_BlogTopic.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_CommentsLikesWritesLikes.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_WritesTopics.resources

@@ -15,7 +15,11 @@ namespace Blog_Entity.Model
         [MaxLength(256)]
         public string Title { get; set; }
 
-        [MaxLength(256)]
-        public string Author { get; set; }
+        public int Author { get; set; }
+
+        [MaxLength(2048)]
+        public string Description { get; set; }
+
+        public ICollection<Topic> Topics { get; set; }
     }
 }

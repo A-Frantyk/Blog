@@ -17,5 +17,15 @@ namespace Blog_Entity
         }
 
         public DbSet<Blog> Blogs { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Comments> Comments { get; set; }
+
+        public DbSet<Topic> Topics { get; set; }
+
+        public DbSet<Likes> Likes { get; set; }
+
+        public DbSet<Writes> Writes { get; set; }
     }
 }
