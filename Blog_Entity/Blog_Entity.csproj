@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogEntityContext.cs" />
+    <Compile Include="Migrations\201606231001504_Blog_class-table_added.cs" />
+    <Compile Include="Migrations\201606231001504_Blog_class-table_added.Designer.cs">
+      <DependentUpon>201606231001504_Blog_class-table_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Blog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <EmbeddedResource Include="Migrations\201606231001504_Blog_class-table_added.resx">
+      <DependentUpon>201606231001504_Blog_class-table_added.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

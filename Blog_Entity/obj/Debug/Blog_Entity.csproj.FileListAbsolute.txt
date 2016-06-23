@@ -8,3 +8,5 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\EntityFramework.SqlSer
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csprojResolveAssemblyReference.cache
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.pdb
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Blog_classtable_added.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csproj.GenerateResource.Cache

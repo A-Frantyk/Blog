@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Blog_Entity.Model;
 
 namespace Blog_Entity
 {
@@ -14,5 +15,7 @@ namespace Blog_Entity
         {
 
         }
+
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
