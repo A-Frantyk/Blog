@@ -1,0 +1,7 @@
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Blog_API_UnitTest.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Blog_API_UnitTest.pdb
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\nunit.framework.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\nunit.framework.xml
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.csprojResolveAssemblyReference.cache
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.pdb
