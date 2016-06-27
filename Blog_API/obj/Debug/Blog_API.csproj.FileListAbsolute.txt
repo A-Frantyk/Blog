@@ -39,3 +39,9 @@ D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Http.WebHost.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\obj\Debug\Blog_API.csprojResolveAssemblyReference.cache
 D:\.Net sample projects\Blog_Entity\Blog_API\obj\Debug\Blog_API.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\obj\Debug\Blog_API.pdb
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Entity.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Services.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\EntityFramework.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Entity.pdb
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Services.pdb
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\EntityFramework.xml
