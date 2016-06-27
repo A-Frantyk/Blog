@@ -9,6 +9,11 @@ namespace Blog_Entity.Model
 {
     public class Comments
     {
+        public Comments()
+        {
+            Likes = new HashSet<Likes>();
+        }
+
         [Key]
         public int Comment_Number { get; set; }
 

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelDTO\BlogDTO.cs" />
+    <Compile Include="ModelDTO\CommentsDTO.cs" />
+    <Compile Include="ModelDTO\LikesDTO.cs" />
+    <Compile Include="ModelDTO\TopicDTO.cs" />
+    <Compile Include="ModelDTO\UserDTO.cs" />
+    <Compile Include="ModelDTO\WritesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\GenericRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog_Entity\Blog_Entity.csproj">
+      <Project>{54c4449b-0c39-4bd6-907c-8084202e2be2}</Project>
+      <Name>Blog_Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,3 +3,7 @@ D:\.Net sample projects\Blog_Entity\Blog_Services\bin\Debug\Blog_Services.pdb
 D:\.Net sample projects\Blog_Entity\Blog_Services\obj\Debug\Blog_Services.csprojResolveAssemblyReference.cache
 D:\.Net sample projects\Blog_Entity\Blog_Services\obj\Debug\Blog_Services.dll
 D:\.Net sample projects\Blog_Entity\Blog_Services\obj\Debug\Blog_Services.pdb
+D:\.Net sample projects\Blog_Entity\Blog_Services\bin\Debug\Blog_Entity.dll
+D:\.Net sample projects\Blog_Entity\Blog_Services\bin\Debug\EntityFramework.dll
+D:\.Net sample projects\Blog_Entity\Blog_Services\bin\Debug\Blog_Entity.pdb
+D:\.Net sample projects\Blog_Entity\Blog_Services\bin\Debug\EntityFramework.xml

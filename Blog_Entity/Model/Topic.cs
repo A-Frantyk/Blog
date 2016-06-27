@@ -10,6 +10,11 @@ namespace Blog_Entity.Model
 {
     public class Topic
     {
+        public Topic()
+        {
+            Writes = new HashSet<Writes>();
+        }
+
         [Key]
         public int Topic_Number { get; set; }
 

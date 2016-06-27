@@ -9,6 +9,11 @@ namespace Blog_Entity.Model
 {
     public class Writes
     {
+        public Writes()
+        {
+            Likes = new HashSet<Likes>();
+        }
+
         [Key]
         public int Write_Number { get; set; }
         

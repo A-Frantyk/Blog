@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Blog_Entity.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Blog_Entity
 {
