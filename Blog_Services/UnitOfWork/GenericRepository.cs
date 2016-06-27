@@ -12,7 +12,7 @@ using Blog_Entity;
 
 namespace Blog_Services.UnitOfWork
 {
-    public class GenericRepository<TEntity>
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : class
     {
 
