@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,8 +136,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blog_Entity\Blog_Entity.csproj">
+      <Project>{54c4449b-0c39-4bd6-907c-8084202e2be2}</Project>
+      <Name>Blog_Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog_Services\Blog_Services.csproj">
+      <Project>{8ac7548e-a25f-4c2e-ad9c-b6ce4e85707f}</Project>
+      <Name>Blog_Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
