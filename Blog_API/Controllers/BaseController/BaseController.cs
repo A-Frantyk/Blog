@@ -17,12 +17,12 @@ namespace Blog_API.Controllers.BaseController
         where UModel : class
     {
         private IUnitOfWork _unit;
-        private IFactory<TDTO, UModel> _writesFactory;
+        private IFactory<TDTO, UModel> _factory;
 
         public BaseController(IUnitOfWork unit, IFactory<TDTO, UModel> factoryObj)
         {
             _unit = unit;
-            _writesFactory = factoryObj;
+            _factory = factoryObj;
         }
 
         public IUnitOfWork UnitOfWork
@@ -37,7 +37,7 @@ namespace Blog_API.Controllers.BaseController
         {
             get
             {
-                return _writesFactory;
+                return _factory;
             }
         }
     }
