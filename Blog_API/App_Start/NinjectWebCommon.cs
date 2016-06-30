@@ -13,6 +13,7 @@ namespace Blog_API.App_Start
     using System.Web.Http;
     using Blog_Services.UnitOfWork;
     using Dependency_Injection;
+    using Blog_Services.Factory;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -65,6 +66,11 @@ namespace Blog_API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IUnitOfWork>().To<UnitOfWork_Pattern>();
+            kernel.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>));
+
+            kernel.Bind(typeof(IFactory<,>)).To<Writes_Factory>().Named("WritesFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<User_Factory>().Named("UserFCTR");
+
         }
 
         public static void RegisterNinject(HttpConfiguration configuration)

@@ -10,12 +10,13 @@ using Blog_Services.ModelDTO;
 using Blog_Services.UnitOfWork;
 using Blog_Entity.Model;
 using Blog_Services.Factory;
+using Ninject;
 
 namespace Blog_API.Controllers
 {
-    public class WritesController : BaseController.BaseController
+    public class WritesController : BaseController.BaseController<WritesDTO, Writes>
     {
-        public WritesController(IUnitOfWork unit) : base(unit)
+        public WritesController( IUnitOfWork unit, [Named("WritesFCTR")] IFactory<WritesDTO, Writes> factoryObj) : base(unit, factoryObj)
         {
         }
 
@@ -26,7 +27,7 @@ namespace Blog_API.Controllers
 
             query = UnitOfWork.WritesItemRepository.Get();
 
-            var result = query.ToList().Select(a => WritesFactory.Create(a));
+            var result = query.ToList().Select(a => Factory.Create(a));
 
             return result.ToList();   
         }

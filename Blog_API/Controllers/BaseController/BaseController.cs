@@ -12,15 +12,17 @@ using Blog_Services.Factory;
 
 namespace Blog_API.Controllers.BaseController
 {
-    public class BaseController : ApiController
+    public class BaseController<TDTO, UModel> : ApiController
+        where TDTO : class
+        where UModel : class
     {
         private IUnitOfWork _unit;
-        private WritesDTO_Factory _writesFactory;
+        private IFactory<TDTO, UModel> _writesFactory;
 
-        public BaseController(IUnitOfWork unit)
+        public BaseController(IUnitOfWork unit, IFactory<TDTO, UModel> factoryObj)
         {
             _unit = unit;
-            _writesFactory = new WritesDTO_Factory(_unit);
+            _writesFactory = factoryObj;
         }
 
         public IUnitOfWork UnitOfWork
@@ -31,7 +33,7 @@ namespace Blog_API.Controllers.BaseController
             }
         }
 
-        public WritesDTO_Factory WritesFactory
+        public IFactory<TDTO, UModel> Factory
         {
             get
             {

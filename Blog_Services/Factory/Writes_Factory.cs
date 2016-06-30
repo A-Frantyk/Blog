@@ -10,17 +10,17 @@ using Blog_Services.ModelDTO;
 
 namespace Blog_Services.Factory
 {
-    public class WritesDTO_Factory
+    public class Writes_Factory : IFactory<WritesDTO, Writes>
     {
-        public readonly IUnitOfWork _unit;
+        private readonly IUnitOfWork _unit;
 
-        public WritesDTO_Factory(IUnitOfWork unitOfWork)
+        public Writes_Factory(IUnitOfWork unitOfWork)
         {
             _unit = unitOfWork;
         }
 
         #region create methods
-        
+
         public WritesDTO Create(Writes writes)
         {
             if(writes == null)
@@ -42,8 +42,13 @@ namespace Blog_Services.Factory
             return writesDTO;
         }
 
+        public Writes Parse(WritesDTO dtoObj)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
-        
+
         #region parse methods
 
 

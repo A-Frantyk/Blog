@@ -92,7 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\WritesDTO_Factory.cs" />
+    <Compile Include="Factory\IFactory.cs" />
+    <Compile Include="Factory\User_Factory.cs" />
+    <Compile Include="Factory\Writes_Factory.cs" />
     <Compile Include="ModelDTO\BlogDTO.cs" />
     <Compile Include="ModelDTO\CommentsDTO.cs" />
     <Compile Include="ModelDTO\LikesDTO.cs" />
