@@ -92,7 +92,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factory\BlogFactory.cs" />
+    <Compile Include="Factory\CommentsFactory.cs" />
     <Compile Include="Factory\IFactory.cs" />
+    <Compile Include="Factory\LikesFactory.cs" />
+    <Compile Include="Factory\TopicsFactory.cs" />
     <Compile Include="Factory\User_Factory.cs" />
     <Compile Include="Factory\Writes_Factory.cs" />
     <Compile Include="ModelDTO\BlogDTO.cs" />

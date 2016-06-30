@@ -70,7 +70,10 @@ namespace Blog_API.App_Start
 
             kernel.Bind(typeof(IFactory<,>)).To<Writes_Factory>().Named("WritesFCTR");
             kernel.Bind(typeof(IFactory<,>)).To<User_Factory>().Named("UserFCTR");
-
+            kernel.Bind(typeof(IFactory<,>)).To<BlogFactory>().Named("BlogFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<TopicsFactory>().Named("TopicFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<CommentsFactory>().Named("CommentsFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<LikesFactory>().Named("LikesFCTR");
         }
 
         public static void RegisterNinject(HttpConfiguration configuration)
