@@ -12,11 +12,11 @@ namespace Blog_Services.Factory
 {
     public class WritesDTO_Factory
     {
-        private IUnitOfWork _unit;
+        public readonly IUnitOfWork _unit;
 
-        public WritesDTO_Factory()
+        public WritesDTO_Factory(IUnitOfWork unitOfWork)
         {
-            _unit = new UnitOfWork_Pattern();
+            _unit = unitOfWork;
         }
 
         #region create methods

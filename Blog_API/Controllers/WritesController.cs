@@ -28,7 +28,7 @@ namespace Blog_API.Controllers
 
             var result = query.ToList().Select(a => WritesFactory.Create(a));
 
-            return result;   
+            return result.ToList();   
         }
     }
 }

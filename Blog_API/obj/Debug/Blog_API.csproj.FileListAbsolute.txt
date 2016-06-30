@@ -45,3 +45,17 @@ D:\.Net sample projects\Blog_Entity\Blog_API\bin\EntityFramework.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Entity.pdb
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Blog_Services.pdb
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\EntityFramework.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Web.Infrastructure.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Razor.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Razor.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Deployment.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Mvc.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Mvc.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.Common.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.WebApi.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\WebActivatorEx.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.Common.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.WebApi.xml

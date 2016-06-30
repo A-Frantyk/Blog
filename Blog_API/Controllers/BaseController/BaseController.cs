@@ -19,8 +19,8 @@ namespace Blog_API.Controllers.BaseController
 
         public BaseController(IUnitOfWork unit)
         {
-            _unit = new UnitOfWork_Pattern();
-            _writesFactory = new WritesDTO_Factory();
+            _unit = unit;
+            _writesFactory = new WritesDTO_Factory(_unit);
         }
 
         public IUnitOfWork UnitOfWork

@@ -5,7 +5,6 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\EntityFramework.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\EntityFramework.SqlServer.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\EntityFramework.xml
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\EntityFramework.SqlServer.xml
-D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csprojResolveAssemblyReference.cache
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.pdb
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Blog_classtable_added.resources
@@ -14,3 +13,4 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_between_BlogTopic.resources
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_CommentsLikesWritesLikes.resources
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_WritesTopics.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csprojResolveAssemblyReference.cache

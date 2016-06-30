@@ -16,13 +16,13 @@ namespace Blog_Services.UnitOfWork
         where TEntity : class
     {
 
-        internal BlogEntityContext context;
-        internal DbSet<TEntity> dbSet;
+        public BlogEntityContext context;
+        public DbSet<TEntity> dbSet;
 
         public GenericRepository(BlogEntityContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<TEntity>();
+            dbSet = context.Set<TEntity>();
         }
 
         public virtual IQueryable<TEntity> Get(

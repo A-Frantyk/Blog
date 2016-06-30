@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿
+using Blog_Services.UnitOfWork;
+using Newtonsoft.Json.Serialization;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
+using System.Reflection;
 using System.Web.Http;
 
 namespace Blog_API
@@ -11,6 +15,14 @@ namespace Blog_API
     {
         public static void Register(HttpConfiguration config)
         {
+            // Register types using NInject
+
+            //var _kernel = new StandardKernel();
+
+
+            //var _igenericRepository = _kernel.TryGet(typeof(IGenericRepository<>));
+            
+
             // Web API configuration and services
 
             // Web API routes
