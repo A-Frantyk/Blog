@@ -48,10 +48,6 @@ D:\.Net sample projects\Blog_Entity\Blog_API\bin\EntityFramework.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Web.Infrastructure.dll
-D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Razor.dll
-D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Razor.dll
-D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.dll
-D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Deployment.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Mvc.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Mvc.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.Common.dll
@@ -59,3 +55,13 @@ D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.WebApi.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\WebActivatorEx.dll
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.Common.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Ninject.Web.WebApi.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Razor.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Razor.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Helpers.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Deployment.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Razor.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Helpers.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Deployment.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.WebPages.Razor.xml

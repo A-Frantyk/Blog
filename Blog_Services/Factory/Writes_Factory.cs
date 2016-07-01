@@ -25,7 +25,7 @@ namespace Blog_Services.Factory
         {
             if(writes == null)
             {
-
+                throw new NullReferenceException("Input parameter is NULL!!!");
             }
 
             var writesDTO = new WritesDTO

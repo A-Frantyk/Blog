@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Blog_Entity;
 using Blog_Entity.Model;
+using Ninject;
 
 namespace Blog_Services.UnitOfWork
 {
@@ -43,7 +44,7 @@ namespace Blog_Services.UnitOfWork
         {
             get
             {
-                if(this.topicItemRepository == null)
+                if (this.topicItemRepository == null)
                 {
                     this.topicItemRepository = new GenericRepository<Topic>(context);
                 }
@@ -52,11 +53,12 @@ namespace Blog_Services.UnitOfWork
             }
         }
 
+        [Inject]
         public IGenericRepository<Writes> WritesItemRepository
         {
             get
             {
-                if(this.writesItemsRepository == null)
+                if (this.writesItemsRepository == null)
                 {
                     this.writesItemsRepository = new GenericRepository<Writes>(context);
                 }
@@ -65,11 +67,12 @@ namespace Blog_Services.UnitOfWork
             }
         }
 
+        [Inject]
         public IGenericRepository<Comments> CommentsItemRepository
         {
             get
             {
-                if(this.commentsItemRepository == null)
+                if (this.commentsItemRepository == null)
                 {
                     this.commentsItemRepository = new GenericRepository<Comments>(context);
                 }
@@ -82,7 +85,7 @@ namespace Blog_Services.UnitOfWork
         {
             get
             {
-                if(this.likesItemsRepository == null)
+                if (this.likesItemsRepository == null)
                 {
                     this.likesItemsRepository = new GenericRepository<Likes>(context);
                 }
@@ -95,7 +98,7 @@ namespace Blog_Services.UnitOfWork
         {
             get
             {
-                if(this.userItemRepository == null)
+                if (this.userItemRepository == null)
                 {
                     this.userItemRepository = new GenericRepository<User>(context);
                 }
