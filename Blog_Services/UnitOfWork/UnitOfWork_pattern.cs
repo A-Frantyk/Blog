@@ -26,7 +26,7 @@ namespace Blog_Services.UnitOfWork
         #endregion
 
         #region IUnitOfWork implementation
-
+        
         public IGenericRepository<Blog> BlogItemRepository
         {
             get
@@ -52,7 +52,7 @@ namespace Blog_Services.UnitOfWork
                 return topicItemRepository;
             }
         }
-
+        
         [Inject]
         public IGenericRepository<Writes> WritesItemRepository
         {
@@ -66,8 +66,7 @@ namespace Blog_Services.UnitOfWork
                 return writesItemsRepository;
             }
         }
-
-        [Inject]
+        
         public IGenericRepository<Comments> CommentsItemRepository
         {
             get
