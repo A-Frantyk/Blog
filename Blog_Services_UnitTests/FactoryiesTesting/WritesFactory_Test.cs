@@ -31,7 +31,7 @@ namespace Blog_Services_UnitTests.FactoryiesTesting
         }
 
         [Test]
-        public void CreaeMethodTest_IsNotReturnNull()
+        public void CreaeMethodTestIsNotReturnNull_Test()
         {
             // Arrange
 

@@ -14,7 +14,9 @@ namespace Blog_API.Controllers
 {
     public class BlogController : BaseController.BaseController<BlogDTO, Blog>
     {
-        public BlogController(IUnitOfWork unit, [Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory) : base(unit, blogFactory)
+        public BlogController(IUnitOfWork unit 
+                              ,[Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory)
+            : base(unit, blogFactory)
         {
         }
 
@@ -28,6 +30,12 @@ namespace Blog_API.Controllers
             var result = query.ToList().Select(a => Factory.Create(a));
 
             return result.ToList();
+        }
+        
+        [HttpPut] 
+        public HttpResponseMessage EditBlogEntity([FromBody] Blog blogEntity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace Blog_Services.Factory
 {
+    public enum LikesPurpose
+    {
+        ForComment = 1,
+        ForWrites = 2
+    };
+
     public class LikesFactory : IFactory<LikesDTO, Likes>
     {
         private readonly IUnitOfWork _unit;
@@ -38,7 +44,70 @@ namespace Blog_Services.Factory
 
         public Likes Parse(LikesDTO likesDtoObj)
         {
-            throw new NotImplementedException();
+            if(likesDtoObj == null)
+            {
+
+            }
+
+            return ParseForEdit(likesDtoObj);
         }
+
+        #region Parse for add and edit methods
+
+        public Likes ParseForAdd(LikesPurpose likePurpose)
+        {
+            Likes like = new Likes()
+            {
+                Like = 0
+            };
+
+            if(likePurpose == LikesPurpose.ForComment)
+            {
+                like.Comment_Number = Int32.Parse(likePurpose.ToString());
+                like.Write_Number = null;
+            }
+            else if(likePurpose == LikesPurpose.ForWrites)
+            {
+                like.Write_Number = Int32.Parse(likePurpose.ToString());
+                like.Comment_Number = null;
+            }
+            else
+            {
+                throw new NotSupportedException("Cannot create and add new like because of input parameter of this method.");
+            }
+
+            return like;
+        }
+        
+
+        private Likes ParseForEdit(LikesDTO likesDtoObj)
+        {
+            Likes like = _unit.LikesItemRepository.Get(i => i.Like_Number == likesDtoObj.Like_Number)
+                                                  .FirstOrDefault();
+
+            if(like == null)
+            {
+
+            }
+
+            if(like.Like != likesDtoObj.Like)
+            {
+                like.Like = likesDtoObj.Like;
+            }
+            
+            if(like.Write_Number != likesDtoObj.Write_Number)
+            {
+                like.Write_Number = likesDtoObj.Write_Number;
+            }
+
+            if(like.Comment_Number != likesDtoObj.Comment_Number)
+            {
+                like.Comment_Number = likesDtoObj.Comment_Number;
+            }
+
+            return like;
+        }
+
+        #endregion
     }
 }

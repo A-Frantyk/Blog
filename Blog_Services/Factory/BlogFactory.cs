@@ -38,7 +38,66 @@ namespace Blog_Services.Factory
 
         public Blog Parse(BlogDTO blogDTOObj)
         {
-            throw new NotImplementedException();
+            if(blogDTOObj == null)
+            {
+
+            }
+
+            if(blogDTOObj.Blog_Number != 0)
+            {
+                return ParseForEdit(blogDTOObj);
+            }
+            else if(blogDTOObj.Blog_Number == 0)
+            {
+                return ParseForAdd(blogDTOObj);
+            }
+            else
+            {
+                throw new NotSupportedException("This operation cannot be supported for this object!!!");
+            }
         }
+
+        #region for edit and parse for add methods
+
+        private Blog ParseForAdd(BlogDTO blogDtoObj)
+        {
+            Blog blog = new Blog()
+            {
+                Title = blogDtoObj.Title,
+                Author = blogDtoObj.Author,
+                Description = blogDtoObj.Description
+            };
+
+            return blog;
+        }
+
+        private Blog ParseForEdit(BlogDTO blogDtoObj)
+        {
+            Blog blog = _unit.BlogItemRepository.Get(i => i.Blog_Number == blogDtoObj.Blog_Number).FirstOrDefault();
+
+            if (blog == null)
+            {
+
+            }
+
+            if (blog.Title != blogDtoObj.Title)
+            {
+                blog.Title = blogDtoObj.Title;
+            }
+
+            if (blog.Author != blog.Author)
+            {
+                blog.Author = blogDtoObj.Author;
+            }
+
+            if (blog.Description != blogDtoObj.Description)
+            {
+                blog.Description = blogDtoObj.Description;
+            }
+
+            return blog;
+        }
+
+        #endregion
     }
 }

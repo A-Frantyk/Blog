@@ -38,7 +38,66 @@ namespace Blog_Services.Factory
 
         public Comments Parse(CommentsDTO commentDtoObj)
         {
-            throw new NotImplementedException();
+            if(commentDtoObj == null)
+            {
+
+            }
+
+            if(commentDtoObj.Comment_Number != 0)
+            {
+                return ParseForEdit(commentDtoObj);
+            }
+            else if(commentDtoObj.Comment_Number == 0)
+            {
+                return ParseForAdd(commentDtoObj);
+            }
+            else
+            {
+                throw new NotSupportedException("This operation cannot be supported for this object!!!");
+            }
         }
+
+        #region Parse for edit and add methods
+
+        private Comments ParseForAdd(CommentsDTO commentDtoObj)
+        {
+            Comments comment = new Comments()
+            {
+                Comment = commentDtoObj.Comment,
+                User_Number = commentDtoObj.User_Number,
+                Writes_Number = commentDtoObj.Writes_Number
+            };
+
+            return comment;
+        }
+
+        private Comments ParseForEdit(CommentsDTO commentDtoObj)
+        {
+            Comments comment = _unit.CommentsItemRepository.Get(i => i.Comment_Number == commentDtoObj.Comment_Number).FirstOrDefault();
+
+            if(comment == null)
+            {
+
+            }
+
+            if(comment.Comment != commentDtoObj.Comment)
+            {
+                comment.Comment = commentDtoObj.Comment;
+            }
+
+            if(comment.User_Number != commentDtoObj.User_Number)
+            {
+                comment.User_Number = commentDtoObj.User_Number;
+            }
+            
+            if(comment.Writes_Number != commentDtoObj.Writes_Number)
+            {
+                comment.Writes_Number = commentDtoObj.Writes_Number;
+            }
+
+            return comment;
+        }
+
+        #endregion
     }
 }

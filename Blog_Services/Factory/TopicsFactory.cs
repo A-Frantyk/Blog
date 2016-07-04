@@ -38,7 +38,67 @@ namespace Blog_Services.Factory
 
         public Topic Parse(TopicDTO topicDtoObj)
         {
-            throw new NotImplementedException();
+            if (topicDtoObj == null)
+            {
+
+            }
+
+            if (topicDtoObj.Topic_Number != 0)
+            {
+                return ParseForEdit(topicDtoObj);
+            }
+            else if(topicDtoObj.Topic_Number == 0)
+            {
+                return ParseForAdd(topicDtoObj);
+            }
+            else
+            {
+                throw new NotSupportedException("Not Supported parse operation");
+            }
         }
+
+        #region Parse for add and edit methods
+
+        private Topic ParseForAdd(TopicDTO topicDtoObj)
+        {
+            Topic topic = new Topic()
+            {
+                Description = topicDtoObj.Description,
+                Topic_Title = topicDtoObj.Topic_Title,
+                Blog_Number = topicDtoObj.Blog_Number
+            };
+
+            return topic;
+        }
+
+        private Topic ParseForEdit(TopicDTO topicDtoObj)
+        {
+            Topic topic = _unit.TopicItemRepository.Get(i => i.Topic_Number == topicDtoObj.Topic_Number)
+                                                   .FirstOrDefault();
+
+            if(topic == null)
+            {
+
+            }
+
+            if(topic.Description != topicDtoObj.Description)
+            {
+                topic.Description = topicDtoObj.Description;
+            }
+
+            if(topic.Topic_Title != topicDtoObj.Topic_Title)
+            {
+                topic.Topic_Title = topicDtoObj.Topic_Title;
+            }
+
+            if(topic.Blog_Number != topicDtoObj.Blog_Number)
+            {
+                topic.Blog_Number = topicDtoObj.Blog_Number;
+            }
+
+            return topic;
+        }
+
+        #endregion
     }
 }

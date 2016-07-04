@@ -42,9 +42,105 @@ namespace Blog_Services.Factory
             return userDTO;
         }
 
-        public User Parse(UserDTO dtoObj)
+        public User Parse(UserDTO userDtoObj)
         {
-            throw new NotImplementedException();
+            if(userDtoObj == null)
+            {
+
+            }
+
+            if(userDtoObj.User_Number != 0)
+            {
+                return ParseForEdit(userDtoObj);
+            }
+            else if(userDtoObj.User_Number == 0)
+            {
+                return ParseForAdd(userDtoObj);
+            }
+            else
+            {
+                throw new NotSupportedException("Not supported for users!");
+            }
         }
+
+        #region Parse for add and edit methods
+
+        private User ParseForAdd(UserDTO userDtoObj)
+        {
+            User user = new User()
+            {
+                Name = userDtoObj.Name,
+                Last_Name = userDtoObj.Last_Name,
+                Age = userDtoObj.Age,
+                Education = userDtoObj.Education,
+                Mobile_Phone = userDtoObj.Mobile_Phone,
+                Short_Information = userDtoObj.Short_Information,
+                Facebook_Link = userDtoObj.Facebook_Link,
+                Vk_Link = userDtoObj.Vk_Link,
+                Mail_Link = userDtoObj.Mail_Link
+            };
+
+            return user;
+        }
+
+        private User ParseForEdit(UserDTO userDtoObj)
+        {
+            User user = _unit.UserItemRepository.Get(i => i.User_Number == userDtoObj.User_Number)
+                                                .FirstOrDefault();
+
+            if(user == null)
+            {
+
+            }
+
+            if(user.Name != userDtoObj.Name)
+            {
+                user.Name = userDtoObj.Name;
+            }
+
+            if(user.Last_Name != userDtoObj.Last_Name)
+            {
+                user.Last_Name = userDtoObj.Last_Name;
+            }
+
+            if(user.Age != userDtoObj.Age)
+            {
+                user.Age = userDtoObj.Age;
+            }
+
+            if(user.Education != userDtoObj.Education)
+            {
+                userDtoObj.Education = userDtoObj.Education;
+            }
+
+            if(user.Mobile_Phone != userDtoObj.Mobile_Phone)
+            {
+                user.Mobile_Phone = userDtoObj.Mobile_Phone;
+            }
+
+            if(user.Facebook_Link != userDtoObj.Facebook_Link)
+            {
+                user.Facebook_Link = userDtoObj.Facebook_Link;
+            }
+
+            if(user.Vk_Link != userDtoObj.Vk_Link)
+            {
+                user.Vk_Link = userDtoObj.Vk_Link;
+            }
+
+            if(user.Mail_Link != userDtoObj.Mail_Link)
+            {
+                user.Mail_Link = userDtoObj.Mail_Link;
+            }
+
+            if(user.Short_Information != userDtoObj.Short_Information)
+            {
+                user.Short_Information = userDtoObj.Short_Information;
+            }
+
+            return user;
+        }
+
+        #endregion
     }
 }
