@@ -19,6 +19,7 @@ namespace Blog_API.Controllers
 
         }
 
+        [HttpGet]
         public IEnumerable<UserDTO> GetUsers()
         {
             IQueryable<User> query;
