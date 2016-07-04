@@ -29,5 +29,71 @@ namespace Blog_API.Controllers
 
             return result.ToList();
         }
+
+        [HttpGet]
+        [Route("api/topics/{topicID}")]
+        public HttpResponseMessage GetTopicByID(int topicID)
+        {
+            Topic topic = UnitOfWork.TopicItemRepository.GetByID(topicID);
+
+            if(topic != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topic));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Topic not found!");
+            }
+        }
+
+        [HttpGet]
+        [Route("api/blog/topics/{blogID}")]
+        public HttpResponseMessage GetTopicByBlogID(int blogID)
+        {
+            Topic topic = UnitOfWork.TopicItemRepository.Get(i => i.Blog_Number == blogID)
+                                                        .FirstOrDefault();
+
+            if(topic != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topic));
+            }
+
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Topic not found!");
+            }
+        }
+
+        [HttpPost]
+        public HttpResponseMessage AddTopic([FromBody] TopicDTO topic)
+        {
+            Topic topicToAdd = Factory.Parse(topic);
+
+            if(topicToAdd != null)
+            {
+                UnitOfWork.TopicItemRepository.Insert(topicToAdd);
+
+                return Request.CreateResponse(HttpStatusCode.Created, Factory.Create(topicToAdd));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Topic not added");
+            }
+        }
+
+        [HttpPut]
+        public HttpResponseMessage EditTopic([FromBody] TopicDTO topic)
+        {
+            Topic topicToEdit = Factory.Parse(topic);
+
+            if(topicToEdit != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topicToEdit));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Topic not modifyied!!");
+            }
+        }
     }
 }

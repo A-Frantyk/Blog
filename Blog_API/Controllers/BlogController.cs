@@ -14,8 +14,7 @@ namespace Blog_API.Controllers
 {
     public class BlogController : BaseController.BaseController<BlogDTO, Blog>
     {
-        public BlogController(IUnitOfWork unit 
-                              ,[Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory)
+        public BlogController(IUnitOfWork unit, [Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory)
             : base(unit, blogFactory)
         {
         }
@@ -32,10 +31,28 @@ namespace Blog_API.Controllers
             return result.ToList();
         }
         
-        [HttpPut] 
-        public HttpResponseMessage EditBlogEntity([FromBody] Blog blogEntity)
+        [HttpGet]
+        public HttpResponseMessage GetBlogByID(int id)
         {
-            throw new NotImplementedException();
+            var blog = UnitOfWork.BlogItemRepository.GetByID(id);
+
+            if(blog != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(blog));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+        }
+
+        [HttpPut] 
+        public HttpResponseMessage EditBlogEntity([FromBody] BlogDTO blogEntity)
+        {
+            var blog = Factory.Parse(blogEntity);
+            UnitOfWork.BlogItemRepository.Update(blog);
+
+            return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(blog));
         }
     }
 }
