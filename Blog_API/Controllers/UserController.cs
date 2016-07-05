@@ -30,5 +30,23 @@ namespace Blog_API.Controllers
 
             return result.ToList();
         }
+
+        [HttpGet]
+        [Route("api/user/{userID}")]
+        public HttpResponseMessage GetUserByID(int userID)
+        {
+            var user = UnitOfWork.UserItemRepository.GetByID(userID);
+
+            if(user != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(user));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "User not found!!!");
+            }
+        }
+
+
     }
 }
