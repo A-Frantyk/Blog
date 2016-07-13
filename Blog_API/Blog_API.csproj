@@ -152,6 +152,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\Controllers\UserController.js" />
+    <Content Include="app\Services\HttpFactory.js" />
+    <Content Include="app\Services\UserServices.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
@@ -189,8 +193,31 @@
     <Content Include="scripts\angular-touch.min.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\AngularUI\ui-router.js" />
+    <Content Include="scripts\AngularUI\ui-router.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="scripts\errors.json" />
+    <Content Include="scripts\angular.min.js.map" />
+    <Content Include="scripts\angular-touch.min.js.map" />
+    <Content Include="scripts\angular-sanitize.min.js.map" />
+    <Content Include="scripts\angular-route.min.js.map" />
+    <Content Include="scripts\angular-resource.min.js.map" />
+    <Content Include="scripts\angular-parse-ext.min.js.map" />
+    <Content Include="scripts\angular-messages.min.js.map" />
+    <Content Include="scripts\angular-message-format.min.js.map" />
+    <Content Include="scripts\angular-loader.min.js.map" />
+    <Content Include="scripts\angular-cookies.min.js.map" />
+    <Content Include="scripts\angular-aria.min.js.map" />
+    <Content Include="scripts\angular-animate.min.js.map" />
+    <None Include="scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="scripts\i18n\angular-locale_aa-er.js" />
     <Content Include="scripts\i18n\angular-locale_aa-et.js" />
@@ -935,16 +962,10 @@
     <Content Include="scripts\i18n\angular-locale_zh.js" />
     <Content Include="scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="scripts\i18n\angular-locale_zu.js" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <None Include="scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="scripts\jquery-2.0.0.js" />
     <Content Include="scripts\jquery-2.0.0.min.js" />
+    <Content Include="scripts\q.js" />
+    <Content Include="scripts\q.min.js" />
     <Content Include="Views\Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -952,6 +973,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LikesController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -970,21 +992,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="scripts\version.json" />
-    <Content Include="scripts\errors.json" />
-    <Content Include="scripts\angular.min.js.map" />
-    <Content Include="scripts\angular-touch.min.js.map" />
-    <Content Include="scripts\angular-sanitize.min.js.map" />
-    <Content Include="scripts\angular-route.min.js.map" />
-    <Content Include="scripts\angular-resource.min.js.map" />
-    <Content Include="scripts\angular-parse-ext.min.js.map" />
-    <Content Include="scripts\angular-messages.min.js.map" />
-    <Content Include="scripts\angular-message-format.min.js.map" />
-    <Content Include="scripts\angular-loader.min.js.map" />
-    <Content Include="scripts\angular-cookies.min.js.map" />
-    <Content Include="scripts\angular-aria.min.js.map" />
-    <Content Include="scripts\angular-animate.min.js.map" />
     <Content Include="scripts\jquery-2.0.0.min.map" />
+    <Content Include="scripts\version.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -993,8 +1002,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\Components\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="scripts\angular\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Blog_Entity\Blog_Entity.csproj">
