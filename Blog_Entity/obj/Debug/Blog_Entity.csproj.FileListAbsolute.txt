@@ -15,3 +15,4 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.relationship_WritesTopics.resources
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\System.Web.Razor.dll
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\System.Web.Razor.xml
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csprojResolveAssemblyReference.cache

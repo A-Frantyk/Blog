@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace Blog_API.Controllers
 {
+    [RoutePrefix("api/user")]
     public class UserController : BaseController.BaseController<UserDTO,User>
     {
         public UserController( IUnitOfWork unit, [Named("UserFCTR")] IFactory<UserDTO ,User> factoryObj ) : base(unit, factoryObj)
@@ -32,7 +33,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/user/{userID}")]
+        [Route("{userID}")]
         public HttpResponseMessage GetUserByID(int userID)
         {
             var user = UnitOfWork.UserItemRepository.GetByID(userID);
@@ -47,6 +48,22 @@ namespace Blog_API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("add")]
+        public HttpResponseMessage AddUser( [FromBody] UserDTO userDTO)
+        {
+            var user = Factory.Parse(userDTO);
 
+            if (user != null)
+            {
+                UnitOfWork.UserItemRepository.Insert(user);
+
+                return Request.CreateResponse(HttpStatusCode.Created, Factory.Create(user));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Cannot add new user!!!");
+            }
+        }
     }
 }

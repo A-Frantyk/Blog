@@ -1,36 +1,44 @@
 ﻿(function () {
     'use strict'
 
-    angular.module('app', ['ui-router', 'ngDialog', 'ngResource'])
-           .config(function ($stateProvider, $urlRouteProvider) {
+    var myApp = angular.module('myApp', ['ui.router', 'ngResource', 'CONST']);
 
-               $urlRouteProvider.otherwise('Home');
+    //myApp.service('UserServices', function UserServices($q, HttpFactory, API_URL) {
 
-               $stateProvider
-                           .state('Home', {
-                               url: '/Home',
-                               templateUrl: '/Home',
-                               controller: HomeController
-                           })
-                           .state('User', {
-                               url: '/Home/User',
-                               templateUrl: 'Home/User',
-                               controller: UserController
-                           });
+    //    this.GetUserInfo = function () {
+    //        var deffered = $q.defer();
+    //        HttpFactory.getAsync(API_URL.GetUserByID, deffered);
 
-           })
-           .value('ServerURL', 'http://localhost:51393/')
+    //        return deffered.promise;
+    //    };
 
-           // app's constants
-           // Available by 'API_URL.NameOfConstant'
+    //    this.GetUserByID = function (id) {
+    //        var deffer = $q.defer();
+    //        HttpFactory.getAsync(API_URL.GetUserByID + id, deffer);
+    //        return deffer.promise;
+    //    }
 
-           .constant('API_URL', {
-               Writes: 'http://localhost:51393/api/writes/',
-               GetWritesByID: 'http://localhost:51393/api/writes/getwritesbyid/',
-               GetWritesByTopicID: 'http://localhost:51393/api/writes/',
-               Topics: 'http://localhost:51393/api/topics/',
-               GetTopicByID: 'http://localhost:51393/api/topics/gettopicbyid/',
-               Users: 'http://localhost:51393/api/user/',
-               GetUserByID: 'http://localhost:51393/api/user/'
-           });
-})
+    //});
+    //myApp.config(function ($stateProvider, $urlRouteProvider) {
+
+    //    $urlRouteProvider.otherwise('Home');
+
+    //    $stateProvider
+    //                .state('Home', {
+    //                    url: '/Home',
+    //                    templateUrl: '/Home',
+    //                    controller: HomeController
+    //                })
+    //                .state('User', {
+    //                    url: '/Home/User',
+    //                    templateUrl: 'Home/User',
+    //                    controller: UserController
+    //                });
+
+    //});
+    myApp.value('ServerURL', 'http://localhost:51393/');
+
+
+
+
+})();

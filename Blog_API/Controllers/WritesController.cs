@@ -14,6 +14,7 @@ using Ninject;
 
 namespace Blog_API.Controllers
 {
+    [RoutePrefix("api/write")]
     public class WritesController : BaseController.BaseController<WritesDTO, Writes>
     {
         public WritesController( IUnitOfWork unit, [Named("WritesFCTR")] IFactory<WritesDTO, Writes> factoryObj) : base(unit, factoryObj)
@@ -75,6 +76,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public HttpResponseMessage AddWrite([FromBody] WritesDTO write)
         {
             var writeToAdd = Factory.Parse(write);

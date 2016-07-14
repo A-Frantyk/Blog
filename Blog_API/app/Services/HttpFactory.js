@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict'
 
-    angular.module('app')
+    angular.module('myApp')
            .factory('HttpFactory', HttpFactory);
 
     function HttpFactory($http, $q) {

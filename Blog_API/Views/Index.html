@@ -10,11 +10,20 @@
     <link rel="stylesheet" href="../Content/font-awesome.min.css">
     <link rel="stylesheet" href="../Content/stylesheet.css">
     <script type="text/javascript" src="../scripts/angular.js"></script>
-    <script type="text/javascript" src="../scripts/angular-resource.js"></script>
+    <script src="../scripts/angular-resource.min.js"></script>
+    <script src="../scripts/AngularUI/ui-router.min.js"></script>
+    <script src="../app/appConsts.js"></script>
+    
     <script type="text/javascript" src="../app/app.js"></script>
+    <script src="../app/Controllers/UserController.js"></script>
+    <script src="../app/Services/HttpFactory.js"></script>
+    <script src="../app/Services/UserServices.js"></script>
+    
+
 </head>
 
-<body ng-app="app" ng-controller="UserController">
+<body ng-app="myApp">
+    <div ng-controller="UserController as ctrl">
     <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
         <div class="container">
             <ul class="nav navbar-nav">
@@ -34,7 +43,7 @@
 
     <div class="jumbotron jumbotron-fluid bg-info">
         <div class="container text-sm-center p-t-3">
-            <h1 class="display-2" ng-model="User.userName"> simple Blog</h1>
+            <h1 class="display-2">{{ctrl.User.userName}} simple Blog</h1>
             <p class="lead">Stay here and read more interesting :)</p>
         </div>
     </div>
@@ -81,7 +90,7 @@
             </div>
         </div>
     </footer> <!-- /footer -->
-
+        </div>
 </body>
 
 

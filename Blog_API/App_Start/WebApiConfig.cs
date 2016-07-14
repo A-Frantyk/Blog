@@ -1,5 +1,6 @@
 ﻿
 using Blog_Services.UnitOfWork;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Ninject;
 using System;
@@ -39,8 +40,14 @@ namespace Blog_API
                 routeTemplate: "api/writes/{id}",
                 defaults: new { controller = "Writes", id = RouteParameter.Optional });
 
+            config.Routes.MapHttpRoute(
+                name: "User",
+                routeTemplate: "api/user/{id}",
+                defaults: new { controller = "User", id = RouteParameter.Optional });
+
             // Enable JSON format returns
             config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.JsonFormatter.SerializerSettings.MetadataPropertyHandling = MetadataPropertyHandling.Ignore;
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();  // send json keys into camelCase style

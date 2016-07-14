@@ -1,19 +1,28 @@
 ﻿(function () {
     'use strict'
 
-    function UserServices($q, HttpFactory, API_URLS) {
-        this.GetUserInfo = function () {
-            var deffered = $q.defer();
-            HttpFactory.getAsync(API_URLS.GetUserByID, deffered);
+    angular.module('myApp')
+           .service('UserServices', function UserServices($q, HttpFactory, API_URL) {
 
-            return deffered.promise;
-        };
+               //var a = console.log('dsfsdf');
+               this.GetUserInfo = function () {
+                       var deffered = $q.defer();
+                       HttpFactory.getAsync(API_URL.GetUserByID, deffered);
 
-        this.GetUserByID = function (id) {
-            var deffer = $q.defer();
-            HttpFactory.getAsync(API_URLS.GetUserByID + id, deffer);
-            return deffer.promise;
-        }
+                       return deffered.promise;
+                   };
 
-    }
-})
+                   this.GetUserByID = function (id) {
+                       var deffer = $q.defer();
+                       HttpFactory.getAsync(API_URL.GetUserByID + id, deffer);
+                       return deffer.promise;
+                   }
+                   //return {a:a}
+
+           });
+
+   
+
+    //UserServices.$inject = ['HttpFactory', '$q', 'CONST'];
+
+})();
