@@ -3,35 +3,40 @@
 
     angular.module('myApp')
            .controller('UserController', function UserController($scope, $http, $q, $stateParams, HttpFactory, API_URL, UserServices) {
-               console.dir(UserServices.GetUserInfo());
+               //console.dir(UserServices.GetUserInfo());
 
-                   //var vm = this;
+               //var vm = this;
 
                this.Users = [];
 
-               this.User = {
-                       userName: 'Taras',
-                       lastName: null,
-                       userInfo: null,
-                       userID: 0,
-                       education: null,
-                       mobPhone: 0,
-                       facebookLink: null,
-                       vkLink: null,
-                       mailLink: null
-                   };
+               var User = {
+                   name: null,
+                   last_Name: null,
+                   short_Information: null,
+                   user_Number: 0,
+                   education: null,
+                   mobile_Phone: 0,
+                   facebook_Link: null,
+                   vk_Link: null,
+                   mail_Link: null,
+                   age: 0
+               };
 
-                   //UserServices.GetUserByID($stateParams.ID)
-                   //            .then(function (response) {
-                   //                User = response;
-                   //            })
-                   //            .catch(function (error) {
-                   //                console.log(error);
-                   //            });
+               $scope.User;
+
+               UserServices.GetUserInfo()
+                           .then(function (response) {
+                               User = response;
+                               console.log(User);
+                               $scope.User = User;
+                           })
+                           .catch(function (error) {
+                               console.log(error);
+                           });
 
            });
 
     //UserController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'UserServices'];
 
-    
+
 })();

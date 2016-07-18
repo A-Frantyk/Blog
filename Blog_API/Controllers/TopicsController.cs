@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace Blog_API.Controllers
 {
+    [RoutePrefix("api/topic")]
     public class TopicsController : BaseController.BaseController<TopicDTO, Topic>
     {
         public TopicsController(IUnitOfWork unit, [Named("TopicFCTR")] IFactory<TopicDTO, Topic> topicFactory) : base(unit, topicFactory)
@@ -31,7 +32,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/topics/{topicID}")]
+        [Route("{topicID}")]
         public HttpResponseMessage GetTopicByID(int topicID)
         {
             Topic topic = UnitOfWork.TopicItemRepository.GetByID(topicID);
@@ -47,7 +48,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/blog/topics/{blogID}")]
+        [Route("getbyblogid/{blogID}")]
         public HttpResponseMessage GetTopicByBlogID(int blogID)
         {
             Topic topic = UnitOfWork.TopicItemRepository.Get(i => i.Blog_Number == blogID)
@@ -65,6 +66,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public HttpResponseMessage AddTopic([FromBody] TopicDTO topic)
         {
             Topic topicToAdd = Factory.Parse(topic);
@@ -82,12 +84,15 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut]
+        [Route("edit")]
         public HttpResponseMessage EditTopic([FromBody] TopicDTO topic)
         {
             Topic topicToEdit = Factory.Parse(topic);
 
             if(topicToEdit != null)
             {
+                UnitOfWork.TopicItemRepository.Update(topicToEdit);
+
                 return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topicToEdit));
             }
             else

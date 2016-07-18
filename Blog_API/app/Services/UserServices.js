@@ -6,23 +6,23 @@
 
                //var a = console.log('dsfsdf');
                this.GetUserInfo = function () {
-                       var deffered = $q.defer();
-                       HttpFactory.getAsync(API_URL.GetUserByID, deffered);
+                   var deffered = $q.defer();
+                   HttpFactory.getAsync(API_URL.GetUserByID + 1, deffered);
 
-                       return deffered.promise;
-                   };
+                   return deffered.promise;
+               };
 
-                   this.GetUserByID = function (id) {
-                       var deffer = $q.defer();
-                       HttpFactory.getAsync(API_URL.GetUserByID + id, deffer);
-                       return deffer.promise;
-                   }
-                   //return {a:a}
+               this.GetUserByID = function (id) {
+                   var deffer = $q.defer();
+                   HttpFactory.getAsync(API_URL.GetUserByID + id, deffer);
+                   return deffer.promise;
+               }
+               //return {a:a}
 
            });
 
-   
 
-    //UserServices.$inject = ['HttpFactory', '$q', 'CONST'];
+
+    //UserServices.$inject = ['$q', 'HttpFactory', 'CONST'];
 
 })();

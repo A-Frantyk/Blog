@@ -35,16 +35,6 @@ namespace Blog_API
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "Writes",
-                routeTemplate: "api/writes/{id}",
-                defaults: new { controller = "Writes", id = RouteParameter.Optional });
-
-            config.Routes.MapHttpRoute(
-                name: "User",
-                routeTemplate: "api/user/{id}",
-                defaults: new { controller = "User", id = RouteParameter.Optional });
-
             // Enable JSON format returns
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.SerializerSettings.MetadataPropertyHandling = MetadataPropertyHandling.Ignore;

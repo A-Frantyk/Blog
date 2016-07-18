@@ -1,4 +1,5 @@
-﻿using Blog_Entity.Model;
+﻿using Blog_API.Controllers.BaseController;
+using Blog_Entity.Model;
 using Blog_Services.Factory;
 using Blog_Services.ModelDTO;
 using Blog_Services.UnitOfWork;
@@ -13,9 +14,9 @@ using System.Web.Http;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/user")]
-    public class UserController : BaseController.BaseController<UserDTO,User>
+    public class UserController : BaseController<UserDTO, User>
     {
-        public UserController( IUnitOfWork unit, [Named("UserFCTR")] IFactory<UserDTO ,User> factoryObj ) : base(unit, factoryObj)
+        public UserController(IUnitOfWork unit, [Named("UserFCTR")] IFactory<UserDTO, User> factoryObj) : base(unit, factoryObj)
         {
 
         }
@@ -38,7 +39,7 @@ namespace Blog_API.Controllers
         {
             var user = UnitOfWork.UserItemRepository.GetByID(userID);
 
-            if(user != null)
+            if (user != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(user));
             }
@@ -50,19 +51,37 @@ namespace Blog_API.Controllers
 
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddUser( [FromBody] UserDTO userDTO)
+        public HttpResponseMessage AddUser([FromBody] UserDTO user)
         {
-            var user = Factory.Parse(userDTO);
-
             if (user != null)
             {
-                UnitOfWork.UserItemRepository.Insert(user);
+                var userToAdd = Factory.Parse(user);
 
-                return Request.CreateResponse(HttpStatusCode.Created, Factory.Create(user));
+                UnitOfWork.UserItemRepository.Insert(userToAdd);
+
+                return Request.CreateResponse(HttpStatusCode.Created, Factory.Create(userToAdd));
             }
             else
             {
                 return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Cannot add new user!!!");
+            }
+        }
+
+        [HttpPut]
+        [Route("edit")]
+        public HttpResponseMessage EditUser([FromBody] UserDTO user)
+        {
+            if (user != null)
+            {
+                var userToEdit = Factory.Parse(user);
+
+                UnitOfWork.UserItemRepository.Update(userToEdit);
+
+                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(userToEdit));
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.NotAcceptable, "Cannot edit user");
             }
         }
     }
