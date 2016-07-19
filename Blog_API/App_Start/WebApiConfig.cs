@@ -9,21 +9,14 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
+using System.Web.Routing;
 
 namespace Blog_API
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        {
-            // Register types using NInject
-
-            //var _kernel = new StandardKernel();
-
-
-            //var _igenericRepository = _kernel.TryGet(typeof(IGenericRepository<>));
-            
-
+        {  
             // Web API configuration and services
 
             // Web API routes

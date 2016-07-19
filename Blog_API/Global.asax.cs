@@ -31,6 +31,8 @@ namespace Blog_API
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
             NinjectWebCommon.RegisterNinject(GlobalConfiguration.Configuration);
+
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }
