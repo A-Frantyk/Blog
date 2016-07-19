@@ -61,6 +61,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut]
+        [Route("edit")]
         public async Task<HttpResponseMessage> EditWrite([FromBody] WritesDTO write)
         {
             var writes = await Factory.Parse(write);

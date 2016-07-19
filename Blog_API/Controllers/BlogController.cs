@@ -13,6 +13,7 @@ using System.Web.Http;
 
 namespace Blog_API.Controllers
 {
+    [RoutePrefix("api/blog")]
     public class BlogController : BaseController.BaseController<BlogDTO, Blog>
     {
         public BlogController(IUnitOfWork unit, [Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory)
@@ -21,6 +22,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
         public async Task<IEnumerable<BlogDTO>> GetBlog()
         {
             IQueryable<Blog> query;
@@ -33,6 +35,7 @@ namespace Blog_API.Controllers
         }
         
         [HttpGet]
+        [Route("{id}")]
         public async Task<HttpResponseMessage> GetBlogByID(int id)
         {
             var blog = await UnitOfWork.BlogItemRepository.GetByIdAsync(id);
@@ -48,6 +51,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut] 
+        [Route("edit")]
         public async Task<HttpResponseMessage> EditBlogEntity([FromBody] BlogDTO blogEntity)
         {
             var blog = await Factory.Parse(blogEntity);

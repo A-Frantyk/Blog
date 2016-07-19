@@ -13,6 +13,7 @@ using System.Web.Http;
 
 namespace Blog_API.Controllers
 {
+    [RoutePrefix("api/comment")]
     public class CommentsController : BaseController.BaseController<CommentsDTO, Comments>
     {
         public CommentsController(IUnitOfWork unit, [Named("CommentsFCTR")] IFactory<CommentsDTO, Comments> commentFactory) : base(unit, commentFactory)
@@ -20,6 +21,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
         public async Task<IEnumerable<CommentsDTO>> GetComments()
         {
             IQueryable<Comments> query;
@@ -32,7 +34,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/comments/{commentID}")]
+        [Route("{commentID}")]
         public async Task<HttpResponseMessage> GetCommentByID(int commentID)
         {
             var comment = await UnitOfWork.CommentsItemRepository.GetByIdAsync(commentID);
@@ -48,6 +50,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("byWriteId/{writeID}")]
         public async Task<IEnumerable<CommentsDTO>> GetCommentsByWriteID(int writeID)
         {
             var comment = await UnitOfWork.CommentsItemRepository.Get(i => i.Writes_Number == writeID);
@@ -58,6 +61,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut]
+        [Route("edit")]
         public async Task<HttpResponseMessage> EditComment([FromBody] CommentsDTO comment)
         {
             var commentToEdit = await Factory.Parse(comment);
@@ -75,6 +79,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public async Task<HttpResponseMessage> AddComment([FromBody] CommentsDTO comment)
         {
             var commentToAdd = await Factory.Parse(comment);

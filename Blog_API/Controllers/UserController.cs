@@ -23,6 +23,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
         public async Task<IEnumerable<UserDTO>> GetUsers()
         {
             IQueryable<User> query;

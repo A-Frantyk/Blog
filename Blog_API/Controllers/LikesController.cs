@@ -21,6 +21,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("all")]
         public async Task<IEnumerable<LikesDTO>> GetLikes()
         {
             IQueryable<Likes> query;
