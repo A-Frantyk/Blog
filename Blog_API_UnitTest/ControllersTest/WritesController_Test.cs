@@ -34,16 +34,16 @@ namespace Blog_API_UnitTest.ControllersTest
             _writesController = new WritesController(_unitMock.Object, _factoryMock.Object);
         }
 
-        [Test]
-        public void GetWritesNotNull_Test()
-        {
-            // Arrange
+        //[Test]
+        //public void GetWritesNotNull_Test()
+        //{
+        //    // Arrange
 
-            // Act
-            var writes = _writesController.GetWrites();
+        //    // Act
+        //    var writes = _writesController.GetWrites();
 
-            // Assert
-            CollectionAssert.AllItemsAreNotNull(writes);
-        }
+        //    // Assert
+        //    CollectionAssert.AllItemsAreNotNull(writes);
+        //}
     }
 }

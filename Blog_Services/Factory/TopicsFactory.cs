@@ -36,7 +36,7 @@ namespace Blog_Services.Factory
             return topicDTO;
         }
 
-        public Topic Parse(TopicDTO topicDtoObj)
+        public async Task<Topic> Parse(TopicDTO topicDtoObj)
         {
             if (topicDtoObj == null)
             {
@@ -45,7 +45,7 @@ namespace Blog_Services.Factory
 
             if (topicDtoObj.Topic_Number != 0)
             {
-                return ParseForEdit(topicDtoObj);
+                return await ParseForEdit(topicDtoObj);
             }
             else if(topicDtoObj.Topic_Number == 0)
             {
@@ -71,10 +71,11 @@ namespace Blog_Services.Factory
             return topic;
         }
 
-        private Topic ParseForEdit(TopicDTO topicDtoObj)
+        private async Task<Topic> ParseForEdit(TopicDTO topicDtoObj)
         {
-            Topic topic = _unit.TopicItemRepository.Get(i => i.Topic_Number == topicDtoObj.Topic_Number)
-                                                   .FirstOrDefault();
+            var item = await _unit.TopicItemRepository.Get(i => i.Topic_Number == topicDtoObj.Topic_Number);
+
+            Topic topic = item.FirstOrDefault();
 
             if(topic == null)
             {

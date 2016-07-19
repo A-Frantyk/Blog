@@ -42,7 +42,7 @@ namespace Blog_Services.Factory
             return userDTO;
         }
 
-        public User Parse(UserDTO userDtoObj)
+        public async Task<User> Parse(UserDTO userDtoObj)
         {
             if(userDtoObj == null)
             {
@@ -51,7 +51,7 @@ namespace Blog_Services.Factory
 
             if(userDtoObj.User_Number != 0)
             {
-                return ParseForEdit(userDtoObj);
+                return await ParseForEdit(userDtoObj);
             }
             else if(userDtoObj.User_Number == 0)
             {
@@ -83,10 +83,11 @@ namespace Blog_Services.Factory
             return user;
         }
 
-        private User ParseForEdit(UserDTO userDtoObj)
+        private async Task<User> ParseForEdit(UserDTO userDtoObj)
         {
-            User user = _unit.UserItemRepository.Get(i => i.User_Number == userDtoObj.User_Number)
-                                                .FirstOrDefault();
+            var item = await _unit.UserItemRepository.Get(i => i.User_Number == userDtoObj.User_Number);
+
+            User user = item.FirstOrDefault();
 
             if(user == null)
             {

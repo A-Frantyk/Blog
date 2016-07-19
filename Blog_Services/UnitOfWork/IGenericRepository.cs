@@ -10,13 +10,25 @@ namespace Blog_Services.UnitOfWork
     public interface IGenericRepository<TEntity>
         where TEntity : class
     {
-        IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
-                                Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-                                string includeProperties = "");
+        Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> filter = null,
+                                Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
         TEntity GetByID(object id);
         void Insert(TEntity entityToInsert);
-        void Delete(object id);
-        void Delete(TEntity entityToDelete);
+
         void Update(TEntity entityToUpdate);
+
+        #region Async version
+
+        Task Delete(object id);
+
+        Task Delete(TEntity entityToDelete);
+
+        Task<TEntity> GetByIdAsync(object id);
+
+        Task InsertAsync(TEntity entity);
+
+        Task UpdateAsync(TEntity entityToUpdate);
+        #endregion
+
     }
 }

@@ -25,32 +25,25 @@ namespace Blog_Services.UnitOfWork
             dbSet = context.Set<TEntity>();
         }
 
-        public virtual IQueryable<TEntity> Get(
+        public async Task<IQueryable<TEntity>> Get(
             Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-            string includeProperties = "")
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
 
         {
-            IQueryable<TEntity> query = dbSet;
+            ParallelQuery<TEntity> query = dbSet.AsParallel<TEntity>();
 
             if (filter != null)
             {
-                query = query.Where(filter);
-            }
-
-            foreach (var includeProperty in includeProperties.Split
-                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
+                query = ParallelEnumerable.Where<TEntity>(query, filter.Compile());
             }
 
             if (orderBy != null)
             {
-                return orderBy(query);
+                return orderBy(query.AsQueryable());
             }
             else
             {
-                return query;
+                return query.AsQueryable<TEntity>();
             }
         }
 
@@ -59,21 +52,35 @@ namespace Blog_Services.UnitOfWork
             return dbSet.Find(id);
         }
 
-        public virtual void Insert(TEntity entity)
+        public async Task<TEntity> GetByIdAsync(object id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+
+
+        public void Insert(TEntity entity)
         {
             context.Entry(entity).State = EntityState.Added;
             context.SaveChanges();
         }
 
-        public virtual void Delete(object id)
+        public async Task InsertAsync(TEntity entity)
         {
-            TEntity entityToDelete = dbSet.Find(id);
-            Delete(entityToDelete);
-
-            context.SaveChanges();
+            context.Entry(entity).State = EntityState.Added;
+            await context.SaveChangesAsync();
         }
 
-        public virtual void Delete(TEntity entityToDelete)
+
+
+        public async Task Delete(object id)
+        {
+            TEntity entityToDelete = dbSet.Find(id);
+            await Delete(entityToDelete);
+
+            await context.SaveChangesAsync();
+        }
+
+        public async Task Delete(TEntity entityToDelete)
         {
             if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
@@ -81,14 +88,31 @@ namespace Blog_Services.UnitOfWork
             }
             dbSet.Remove(entityToDelete);
 
+            await context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(object id)
+        {
+            TEntity entityToDelete = await dbSet.FindAsync(id);
+            await Delete(entityToDelete);
+
+            await context.SaveChangesAsync();
+        }
+
+
+
+        public void Update(TEntity entityToUpdate)
+        {
+            context.Entry(entityToUpdate).State = EntityState.Modified;
+
             context.SaveChanges();
         }
 
-        public virtual void Update(TEntity entityToUpdate)
+        public async Task UpdateAsync(TEntity entityToUpdate)
         {
             context.Entry(entityToUpdate).State = EntityState.Modified;
-            
-            context.SaveChanges();
+
+            await context.SaveChangesAsync();
         }
     }
 }

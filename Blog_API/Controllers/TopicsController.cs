@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Blog_API.Controllers
@@ -20,11 +21,11 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<TopicDTO> GetTopic()
+        public async Task<IEnumerable<TopicDTO>> GetTopic()
         {
             IQueryable<Topic> query;
 
-            query = UnitOfWork.TopicItemRepository.Get();
+            query = await UnitOfWork.TopicItemRepository.Get();
 
             var result = query.ToList().Select(a => Factory.Create(a));
 
@@ -33,9 +34,9 @@ namespace Blog_API.Controllers
 
         [HttpGet]
         [Route("{topicID}")]
-        public HttpResponseMessage GetTopicByID(int topicID)
+        public async Task<HttpResponseMessage> GetTopicByID(int topicID)
         {
-            Topic topic = UnitOfWork.TopicItemRepository.GetByID(topicID);
+            Topic topic = await UnitOfWork.TopicItemRepository.GetByIdAsync(topicID);
 
             if(topic != null)
             {
@@ -47,29 +48,29 @@ namespace Blog_API.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("getbyblogid/{blogID}")]
-        public HttpResponseMessage GetTopicByBlogID(int blogID)
-        {
-            Topic topic = UnitOfWork.TopicItemRepository.Get(i => i.Blog_Number == blogID)
-                                                        .FirstOrDefault();
+        //[HttpGet]
+        //[Route("getbyblogid/{blogID}")]
+        //public HttpResponseMessage GetTopicByBlogID(int blogID)
+        //{
+        //    Topic topic = UnitOfWork.TopicItemRepository.Get(i => i.Blog_Number == blogID)
+        //                                                .FirstOrDefault();
 
-            if(topic != null)
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topic));
-            }
+        //    if(topic != null)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(topic));
+        //    }
 
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Topic not found!");
-            }
-        }
+        //    else
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.NotFound, "Topic not found!");
+        //    }
+        //}
 
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddTopic([FromBody] TopicDTO topic)
+        public async Task<HttpResponseMessage> AddTopic([FromBody] TopicDTO topic)
         {
-            Topic topicToAdd = Factory.Parse(topic);
+            Topic topicToAdd = await Factory.Parse(topic);
 
             if(topicToAdd != null)
             {
@@ -85,9 +86,9 @@ namespace Blog_API.Controllers
 
         [HttpPut]
         [Route("edit")]
-        public HttpResponseMessage EditTopic([FromBody] TopicDTO topic)
+        public async Task<HttpResponseMessage> EditTopic([FromBody] TopicDTO topic)
         {
-            Topic topicToEdit = Factory.Parse(topic);
+            Topic topicToEdit = await Factory.Parse(topic);
 
             if(topicToEdit != null)
             {

@@ -45,11 +45,11 @@ namespace Blog_Services.Factory
 
         #region parse methods
 
-        public Writes Parse(WritesDTO writesDtoObj)
+        public async Task<Writes> Parse(WritesDTO writesDtoObj)
         {
             if(writesDtoObj.Write_Number != 0)
             {
-                return ParseForEdit(writesDtoObj);
+                return await ParseForEdit(writesDtoObj);
             }
             else if(writesDtoObj.Write_Number == 0)
             {
@@ -76,10 +76,11 @@ namespace Blog_Services.Factory
             return write;
         }
 
-        private Writes ParseForEdit(WritesDTO writesDtoObj)
+        private async Task<Writes> ParseForEdit(WritesDTO writesDtoObj)
         {
-            Writes write = _unit.WritesItemRepository.Get(i => i.Write_Number == writesDtoObj.Write_Number)
-                                                     .FirstOrDefault();
+            var item = await _unit.WritesItemRepository.Get(i => i.Write_Number == writesDtoObj.Write_Number);
+
+            Writes write = item.FirstOrDefault();
 
             if(write == null)
             {

@@ -36,7 +36,7 @@ namespace Blog_Services.Factory
             return blogDTO;
         }
 
-        public Blog Parse(BlogDTO blogDTOObj)
+        public async Task<Blog> Parse(BlogDTO blogDTOObj)
         {
             if(blogDTOObj == null)
             {
@@ -45,7 +45,7 @@ namespace Blog_Services.Factory
 
             if(blogDTOObj.Blog_Number != 0)
             {
-                return ParseForEdit(blogDTOObj);
+                return await ParseForEdit(blogDTOObj);
             }
             else if(blogDTOObj.Blog_Number == 0)
             {
@@ -71,9 +71,11 @@ namespace Blog_Services.Factory
             return blog;
         }
 
-        private Blog ParseForEdit(BlogDTO blogDtoObj)
+        private async Task<Blog> ParseForEdit(BlogDTO blogDtoObj)
         {
-            Blog blog = _unit.BlogItemRepository.Get(i => i.Blog_Number == blogDtoObj.Blog_Number).FirstOrDefault();
+            var item = await _unit.BlogItemRepository.Get(i => i.Blog_Number == blogDtoObj.Blog_Number);
+
+            Blog blog = item.FirstOrDefault();
 
             if (blog == null)
             {
@@ -85,7 +87,7 @@ namespace Blog_Services.Factory
                 blog.Title = blogDtoObj.Title;
             }
 
-            if (blog.Author != blog.Author)
+            if (blog.Author != blogDtoObj.Author)
             {
                 blog.Author = blogDtoObj.Author;
             }

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Blog_API.Controllers
@@ -22,11 +23,11 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<UserDTO> GetUsers()
+        public async Task<IEnumerable<UserDTO>> GetUsers()
         {
             IQueryable<User> query;
 
-            query = UnitOfWork.UserItemRepository.Get();
+            query = await UnitOfWork.UserItemRepository.Get();
 
             var result = query.ToList().Select(a => Factory.Create(a));
 
@@ -51,11 +52,11 @@ namespace Blog_API.Controllers
 
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddUser([FromBody] UserDTO user)
+        public async Task<HttpResponseMessage> AddUser([FromBody] UserDTO user)
         {
             if (user != null)
             {
-                var userToAdd = Factory.Parse(user);
+                var userToAdd = await Factory.Parse(user);
 
                 UnitOfWork.UserItemRepository.Insert(userToAdd);
 
@@ -69,11 +70,11 @@ namespace Blog_API.Controllers
 
         [HttpPut]
         [Route("edit")]
-        public HttpResponseMessage EditUser([FromBody] UserDTO user)
+        public async Task<HttpResponseMessage> EditUser([FromBody] UserDTO user)
         {
             if (user != null)
             {
-                var userToEdit = Factory.Parse(user);
+                var userToEdit = await Factory.Parse(user);
 
                 UnitOfWork.UserItemRepository.Update(userToEdit);
 

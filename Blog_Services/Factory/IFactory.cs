@@ -12,6 +12,6 @@ namespace Blog_Services.Factory
     {
         TDTO Create(UModel modelObj);
 
-        UModel Parse(TDTO dtoObj);
+        Task<UModel> Parse(TDTO dtoObj);
     }
 }

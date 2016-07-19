@@ -11,6 +11,7 @@ using Blog_Services.UnitOfWork;
 using Blog_Entity.Model;
 using Blog_Services.Factory;
 using Ninject;
+using System.Threading.Tasks;
 
 namespace Blog_API.Controllers
 {
@@ -22,9 +23,10 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WritesDTO> GetWrites()
+        [Route("all")]
+        public async Task<IEnumerable<WritesDTO>> GetWrites()
         {
-            var writes = UnitOfWork.WritesItemRepository.Get();
+            var writes = await UnitOfWork.WritesItemRepository.Get();
 
             var result = writes.ToList().Select(a => Factory.Create(a));
 
@@ -32,7 +34,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/writes/{id}")]
+        [Route("{id}")]
         public HttpResponseMessage GetWritesByID(int id)
         {
             var write = UnitOfWork.WritesItemRepository.GetByID(id);
@@ -48,10 +50,10 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("api/topic/writes/{topicID}")]
-        public IEnumerable<WritesDTO> GetWritesByTopicID(int topicID)
+        [Route("getbytopicId/{topicID}")]
+        public async Task<IEnumerable<WritesDTO>> GetWritesByTopicID(int topicID)
         {
-            var writes = UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicID);
+            var writes = await UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicID);
 
             var result = writes.ToList().Select(a => Factory.Create(a));
 
@@ -59,9 +61,9 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut]
-        public HttpResponseMessage EditWrite([FromBody] WritesDTO write)
+        public async Task<HttpResponseMessage> EditWrite([FromBody] WritesDTO write)
         {
-            var writes = Factory.Parse(write);
+            var writes = await Factory.Parse(write);
 
             if(writes != null)
             {
@@ -77,9 +79,9 @@ namespace Blog_API.Controllers
 
         [HttpPost]
         [Route("add")]
-        public HttpResponseMessage AddWrite([FromBody] WritesDTO write)
+        public async Task<HttpResponseMessage> AddWrite([FromBody] WritesDTO write)
         {
-            var writeToAdd = Factory.Parse(write);
+            var writeToAdd = await Factory.Parse(write);
 
             if(writeToAdd != null)
             {

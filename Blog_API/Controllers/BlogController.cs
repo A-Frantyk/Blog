@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Blog_API.Controllers
@@ -20,11 +21,11 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<BlogDTO> GetBlog()
+        public async Task<IEnumerable<BlogDTO>> GetBlog()
         {
             IQueryable<Blog> query;
 
-            query = UnitOfWork.BlogItemRepository.Get();
+            query = await UnitOfWork.BlogItemRepository.Get();
 
             var result = query.ToList().Select(a => Factory.Create(a));
 
@@ -32,9 +33,9 @@ namespace Blog_API.Controllers
         }
         
         [HttpGet]
-        public HttpResponseMessage GetBlogByID(int id)
+        public async Task<HttpResponseMessage> GetBlogByID(int id)
         {
-            var blog = UnitOfWork.BlogItemRepository.GetByID(id);
+            var blog = await UnitOfWork.BlogItemRepository.GetByIdAsync(id);
 
             if(blog != null)
             {
@@ -47,9 +48,9 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut] 
-        public HttpResponseMessage EditBlogEntity([FromBody] BlogDTO blogEntity)
+        public async Task<HttpResponseMessage> EditBlogEntity([FromBody] BlogDTO blogEntity)
         {
-            var blog = Factory.Parse(blogEntity);
+            var blog = await Factory.Parse(blogEntity);
             UnitOfWork.BlogItemRepository.Update(blog);
 
             return Request.CreateResponse(HttpStatusCode.OK, Factory.Create(blog));

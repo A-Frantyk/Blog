@@ -36,7 +36,7 @@ namespace Blog_Services.Factory
             return commentDTO;
         }
 
-        public Comments Parse(CommentsDTO commentDtoObj)
+        public async Task<Comments> Parse(CommentsDTO commentDtoObj)
         {
             if(commentDtoObj == null)
             {
@@ -45,7 +45,7 @@ namespace Blog_Services.Factory
 
             if(commentDtoObj.Comment_Number != 0)
             {
-                return ParseForEdit(commentDtoObj);
+                return await ParseForEdit(commentDtoObj);
             }
             else if(commentDtoObj.Comment_Number == 0)
             {
@@ -71,9 +71,11 @@ namespace Blog_Services.Factory
             return comment;
         }
 
-        private Comments ParseForEdit(CommentsDTO commentDtoObj)
+        private async Task<Comments> ParseForEdit(CommentsDTO commentDtoObj)
         {
-            Comments comment = _unit.CommentsItemRepository.Get(i => i.Comment_Number == commentDtoObj.Comment_Number).FirstOrDefault();
+            var item = await _unit.CommentsItemRepository.Get(i => i.Comment_Number == commentDtoObj.Comment_Number);
+
+            Comments comment = item.FirstOrDefault();
 
             if(comment == null)
             {

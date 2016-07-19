@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Blog_API.Controllers
@@ -19,11 +20,11 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CommentsDTO> GetComments()
+        public async Task<IEnumerable<CommentsDTO>> GetComments()
         {
             IQueryable<Comments> query;
 
-            query = UnitOfWork.CommentsItemRepository.Get();
+            query = await UnitOfWork.CommentsItemRepository.Get();
 
             var result = query.ToList().Select(a => Factory.Create(a));
 
@@ -32,9 +33,9 @@ namespace Blog_API.Controllers
 
         [HttpGet]
         [Route("api/comments/{commentID}")]
-        public HttpResponseMessage GetCommentByID(int commentID)
+        public async Task<HttpResponseMessage> GetCommentByID(int commentID)
         {
-            var comment = UnitOfWork.CommentsItemRepository.GetByID(commentID);
+            var comment = await UnitOfWork.CommentsItemRepository.GetByIdAsync(commentID);
 
             if(comment != null)
             {
@@ -47,9 +48,9 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CommentsDTO> GetCommentsByWriteID(int writeID)
+        public async Task<IEnumerable<CommentsDTO>> GetCommentsByWriteID(int writeID)
         {
-            var comment = UnitOfWork.CommentsItemRepository.Get(i => i.Writes_Number == writeID);
+            var comment = await UnitOfWork.CommentsItemRepository.Get(i => i.Writes_Number == writeID);
 
             var result = comment.ToList().Select(a => Factory.Create(a));
 
@@ -57,9 +58,9 @@ namespace Blog_API.Controllers
         }
 
         [HttpPut]
-        public HttpResponseMessage EditComment([FromBody] CommentsDTO comment)
+        public async Task<HttpResponseMessage> EditComment([FromBody] CommentsDTO comment)
         {
-            var commentToEdit = Factory.Parse(comment);
+            var commentToEdit = await Factory.Parse(comment);
 
             if(commentToEdit != null)
             {
@@ -74,9 +75,9 @@ namespace Blog_API.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage AddComment([FromBody] CommentsDTO comment)
+        public async Task<HttpResponseMessage> AddComment([FromBody] CommentsDTO comment)
         {
-            var commentToAdd = Factory.Parse(comment);
+            var commentToAdd = await Factory.Parse(comment);
 
             if(commentToAdd != null)
             {

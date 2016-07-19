@@ -42,14 +42,14 @@ namespace Blog_Services.Factory
             return likesDTO;
         }
 
-        public Likes Parse(LikesDTO likesDtoObj)
+        public async Task<Likes> Parse(LikesDTO likesDtoObj)
         {
             if(likesDtoObj == null)
             {
 
             }
 
-            return ParseForEdit(likesDtoObj);
+            return await ParseForEdit(likesDtoObj);
         }
 
         #region Parse for add and edit methods
@@ -80,10 +80,11 @@ namespace Blog_Services.Factory
         }
         
 
-        private Likes ParseForEdit(LikesDTO likesDtoObj)
+        private async Task<Likes> ParseForEdit(LikesDTO likesDtoObj)
         {
-            Likes like = _unit.LikesItemRepository.Get(i => i.Like_Number == likesDtoObj.Like_Number)
-                                                  .FirstOrDefault();
+            var item = await _unit.LikesItemRepository.Get(i => i.Like_Number == likesDtoObj.Like_Number);
+
+            Likes like = item.FirstOrDefault();
 
             if(like == null)
             {
