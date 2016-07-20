@@ -20,8 +20,6 @@
     <script src="../app/Controllers/UserController.js"></script>
     <script src="../app/Services/HttpFactory.js"></script>
     <script src="../app/Services/UserServices.js"></script>
-
-
 </head>
 
 <body ng-app="myApp">
@@ -39,7 +37,10 @@
                         <a class="nav-link" href="#speakers">Others</a>
                     </li>
                 </ul>
-                <a class="navbar-brand pull-sm-right m-r-0 hidden-xs-down">Presented by Andrii Frantyk</a>
+                <div class="row">
+                    <a class="navbar-brand pull-sm-right col-md-1" href="logIn">Log in</a>
+                    <a class="navbar-brand pull-sm-right m-r-0 hidden-xs-down">Presented by Andrii Frantyk</a>
+                </div>
             </div>
         </nav>
 
@@ -93,6 +94,7 @@
             </div>
         </footer> <!-- /footer -->
     </div>
+
 </body>
 
 

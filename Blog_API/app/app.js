@@ -1,27 +1,28 @@
 ﻿(function () {
     'use strict'
 
-    var myApp = angular.module('myApp', ['ui.router','ngDialog', 'ngRoute' ,'ngResource', 'CONST']);
+    var myApp = angular.module('myApp', ['ui.router', 'ngDialog', 'ngRoute', 'ngResource', 'CONST']);
+
+    myApp.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/', {
+            redirectTo: '/Index.html',
+            data: {
+                privateData: true
+            }
+        })
+
+        .when('/logIn', {
+            templateUrl: 'Views/LogIn_Form.html',
+            controller: 'LogInController',
+            data: {
+                privateData: true
+            }
+        });
 
 
 
-    //myApp.config(['$stateProvider', '$urlRouteProvider', function ($stateProvider, $urlRouteProvider) {
+    }]);
 
-    //    $urlRouteProvider.otherwise('Home');
-
-    //    $stateProvider
-    //                .state('Home', {
-    //                    url: '/Home',
-    //                    templateUrl: '/Home',
-    //                    controller: HomeController
-    //                })
-    //                .state('User', {
-    //                    url: '/Home/User',
-    //                    templateUrl: 'Home/User',
-    //                    controller: UserController
-    //                });
-
-    //}]);
-    //myApp.value('ServerURL', 'http://localhost:51393/');
+    myApp.value('ServerURL', 'http://localhost:51393/');
 
 })();
