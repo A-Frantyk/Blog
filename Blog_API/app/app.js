@@ -1,23 +1,26 @@
 ﻿(function () {
     'use strict'
 
-    var myApp = angular.module('myApp', ['ui.router', 'ngDialog', 'ngRoute', 'ngResource', 'CONST']);
+    var myApp = angular.module('myApp', ['ui.router', 'ngDialog', 'ngRoute', 'ngResource','ui.bootstrap', 'CONST']);
 
     myApp.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
-            redirectTo: '/Index.html',
+            redirectTo: '/Home',
+            data: {
+                privateData: true
+            }
+        })
+        .when('/Home', {
+            template: 'Views/Home.html',
+            controller: 'UserController',
             data: {
                 privateData: true
             }
         })
 
-        .when('/logIn', {
-            templateUrl: 'Views/LogIn_Form.html',
-            controller: 'LogInController',
-            data: {
-                privateData: true
-            }
-        });
+        .when('/write/all', {
+            template: 'View/'
+        })
 
 
 

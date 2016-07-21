@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-<head lang="en">
+<head ng-app="myApp" lang="en">
     <title>Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,21 +9,23 @@
     <link rel="stylesheet" href="../Content/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link rel="stylesheet" href="../Content/font-awesome.min.css">
     <link rel="stylesheet" href="../Content/stylesheet.css">
+
     <script type="text/javascript" src="../scripts/angular.js"></script>
     <script src="../scripts/angular-resource.min.js"></script>
     <script src="../scripts/AngularUI/ui-router.min.js"></script>
     <script src="../scripts/angular-route.js"></script>
     <script src="../scripts/ngDialog.js"></script>
+    <script src="../scripts/angular-ui/ui-bootstrap.js"></script>
     <script src="../app/appConsts.js"></script>
-
+    
     <script type="text/javascript" src="../app/app.js"></script>
     <script src="../app/Controllers/UserController.js"></script>
     <script src="../app/Services/HttpFactory.js"></script>
     <script src="../app/Services/UserServices.js"></script>
 </head>
 
-<body ng-app="myApp">
-    <div ng-controller="UserController">
+<body>
+    <div>
         <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
             <div class="container">
                 <ul class="nav navbar-nav">
@@ -38,43 +40,13 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <a class="navbar-brand pull-sm-right col-md-1" href="logIn">Log in</a>
+                    <a class="navbar-brand pull-sm-right col-md-1" href="logIn" ng-click="">Log in</a>
                     <a class="navbar-brand pull-sm-right m-r-0 hidden-xs-down">Presented by Andrii Frantyk</a>
                 </div>
             </div>
         </nav>
 
-        <div class="jumbotron jumbotron-fluid bg-info">
-            <div class="container text-sm-center p-t-3">
-                <h1 class="display-2">{{User.name + ' ' + User.last_Name}} simple Blog</h1>
-                <p class="lead">Stay here and read more interesting :)</p>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="/Images/blog2-1.jpeg" class="img img-fluid img-rounded" alt="blogAuthor">
-                </div>
-                <div class="col-lg-6">
-                    <p class="center-block font-italic m-x-0" style="font-size: 22px;">
-                        Hi Everyone. My name is {{User.name + ' ' + User.last_Name}} . I'm a software engineer at SoftServe company. I'm {{User.age}}.
-                        This is a first example of my own blog I have creating on my own.
-                        I'm student at Lviv Polytechnic 'National University', I'm studying {{User.education}} subjects and some of them are related to
-                        the computer science. I like programming, creating some interesting things that can help other people solve
-                        their problems and tasks, and I'm feeling happy to do this :)
-                    </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 font-italic m-l-3 m-t-3">
-                    <p class="center-block" style="font-size: 22px;">
-                        In this simple blog site, you'll find three main topics - Writes, News, and Others which are displayed as the tab button in top of the page.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <div ng-view></div>
 
         <!-- footer -->
         <footer class="container" id="wrap">

@@ -28,6 +28,7 @@
         UserServices.GetUserInfo()
                     .then(function (response) {
                         User = response;
+                        console.log(User);
                         $scope.User = User;
                     })
                     .catch(function (error) {

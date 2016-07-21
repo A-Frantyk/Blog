@@ -21,5 +21,4 @@
     };
 
     UserServices.$inject = ['$q', 'HttpFactory', 'API_URL'];
-
 })();
