@@ -12,7 +12,7 @@
         })
         .when('/Home', {
             template: 'Views/Home.html',
-            controller: 'UserController',
+            controller: 'IndexController',
             data: {
                 privateData: true
             }
