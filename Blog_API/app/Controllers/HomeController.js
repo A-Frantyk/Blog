@@ -4,7 +4,7 @@
     angular.module('myApp')
            .controller('HomeController', HomeController);
 
-    function HomeController($scope, $http, $q, $stateParams, HttpFactory, API_URL, IndexServices) {
+    function HomeController($scope, $http, $q, $stateParams, HttpFactory, API_URL, HomeServices) {
         
         $scope.Blog;
 
@@ -29,7 +29,7 @@
         //                 console.log(error);
         //             });
 
-        IndexServices.GetBlogTitle()
+        HomeServices.GetBlogTitle()
                      .then(function (response) {
                          console.log(response);
                          Blog.title = response;
@@ -48,7 +48,7 @@
         //                 this.error = error;
         //             });
 
-        IndexServices.GetBlogDescription()
+        HomeServices.GetBlogDescription()
                      .then(function (response) {
                          console.log(response);
                          Blog.description = response;
@@ -60,5 +60,5 @@
 
     };
 
-    HomeController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'IndexServices'];
+    HomeController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'HomeServices'];
 })();

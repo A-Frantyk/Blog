@@ -156,10 +156,13 @@
     <Content Include="app\appConsts.js" />
     <Content Include="app\Components\StartPageComponent.js" />
     <Content Include="app\Controllers\HomeController.js" />
-    <Content Include="app\Controllers\UserController.js" />
+    <Content Include="app\Controllers\IndexController.js" />
+    <Content Include="app\Controllers\WriteController.js" />
     <Content Include="app\Services\HttpFactory.js" />
+    <Content Include="app\Services\HomeServices.js" />
     <Content Include="app\Services\IndexServices.js" />
-    <Content Include="app\Services\UserServices.js" />
+    <Content Include="app\Services\TopicServices.js" />
+    <Content Include="app\Services\WriteServices.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />

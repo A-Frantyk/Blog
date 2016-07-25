@@ -60,6 +60,17 @@ namespace Blog_API.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("all/{topicId}")]
+        public async Task<IEnumerable<string>> GetWritesTitle(int topicId)
+        {
+            var items = await UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicId);
+
+            var titles = items.Select(a => a.Title);
+
+            return titles;
+        }
+
         [HttpPut]
         [Route("edit")]
         public async Task<HttpResponseMessage> EditWrite([FromBody] WritesDTO write)

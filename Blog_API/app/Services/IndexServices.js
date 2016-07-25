@@ -3,39 +3,20 @@
 
     angular.module('myApp')
            .service('IndexServices', IndexServices);
-
     function IndexServices($q, HttpFactory, API_URL) {
 
-        this.GetFullBlogInfo = function () {
+        this.GetUserInfo = function () {
             var deffered = $q.defer();
-            HttpFactory.getAsync(API_URL.Blog, deffered);
+            HttpFactory.getAsync(API_URL.GetUserByID + 1, deffered);
 
             return deffered.promise;
         }
 
-        this.GetBlogTitle = function () {
-            var deffered = $q.defer();
+        this.GetUserByID = function (id) {
+            var deffer = $q.defer();
+            HttpFactory.getAsync(API_URL.GetUserByID + id, deffer);
 
-            HttpFactory.getAsync(API_URL.GetTitle, deffered);
-
-            return deffered.promise;
-        }
-
-        //this.GetBlogAuthor = function () {
-        //    var deffered = $q.defer();
-        //    var ddeff = $q.defer();
-        //    HttpFactory.getAsync(API_URL.GetAuthor, ddeff);
-        //    HttpFactory.getAsync(API_URL.GetUserByID + authorId, deffered);
-
-        //    return deffered.promise.name + ' ' + deffered.promise.last_Name;
-        //}
-
-        this.GetBlogDescription = function () {
-            var deffered = $q.defer();
-
-            HttpFactory.getAsync(API_URL.GetDescription, deffered);
-
-            return deffered.promise;
+            return deffer.promise;
         }
     };
 
