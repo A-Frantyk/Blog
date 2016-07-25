@@ -50,6 +50,39 @@ namespace Blog_API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("author")]
+        public async Task<HttpResponseMessage> GetAuthor()
+        {
+            var item = await UnitOfWork.BlogItemRepository.Get();
+
+            var author = item.FirstOrDefault().Author;
+
+            return Request.CreateResponse(HttpStatusCode.OK, author);
+        }
+
+        [HttpGet]
+        [Route("description")]
+        public async Task<HttpResponseMessage> GetDescription()
+        {
+            var item = await UnitOfWork.BlogItemRepository.Get();
+
+            var description = item.FirstOrDefault().Description;
+
+            return Request.CreateResponse(HttpStatusCode.OK, description);
+        }
+
+        [HttpGet]
+        [Route("title")]
+        public async Task<HttpResponseMessage> GetTitle()
+        {
+            var item = await UnitOfWork.BlogItemRepository.Get();
+
+            var title = item.FirstOrDefault().Title;
+
+            return Request.CreateResponse(HttpStatusCode.OK, title);
+        }
+
         [HttpPut] 
         [Route("edit")]
         public async Task<HttpResponseMessage> EditBlogEntity([FromBody] BlogDTO blogEntity)

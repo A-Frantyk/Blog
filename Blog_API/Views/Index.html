@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-<head ng-app="myApp" lang="en">
+<head  lang="en">
     <title>Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,12 +20,14 @@
     
     <script type="text/javascript" src="../app/app.js"></script>
     <script src="../app/Controllers/UserController.js"></script>
+    <script src="../app/Controllers/HomeController.js"></script>
     <script src="../app/Services/HttpFactory.js"></script>
     <script src="../app/Services/UserServices.js"></script>
+    <script src="../app/Services/IndexServices.js"></script>
 </head>
 
-<body>
-    <div>
+<body ng-app="myApp">
+    <div ng-controller="UserController">
         <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
             <div class="container">
                 <ul class="nav navbar-nav">
@@ -40,8 +42,8 @@
                     </li>
                 </ul>
                 <div class="row">
-                    <a class="navbar-brand pull-sm-right col-md-1" href="logIn" ng-click="">Log in</a>
                     <a class="navbar-brand pull-sm-right m-r-0 hidden-xs-down">Presented by Andrii Frantyk</a>
+                    <a class="navbar-brand pull-sm-right" href="logIn" data-toggle="modal" ng-click="">Log in</a>
                 </div>
             </div>
         </nav>

@@ -11,8 +11,8 @@
             }
         })
         .when('/Home', {
-            template: 'Views/Home.html',
-            controller: 'IndexController',
+            templateUrl: '/Views/Home.html',
+            controller: 'HomeController',
             data: {
                 privateData: true
             }
@@ -21,9 +21,6 @@
         .when('/write/all', {
             template: 'View/'
         })
-
-
-
     }]);
 
     myApp.value('ServerURL', 'http://localhost:51393/');

@@ -21,6 +21,9 @@
                 Blog: 'http://localhost:51393/api/blog/all',
                 GetBlogByID: 'http://localhost:51393/api/blog/',
                 EditBlog: 'http://localhost:51393/api/blog/edit',
+                GetTitle: 'http://localhost:51393/api/blog/title',
+                GetAuthor: 'http://localhost:51393/api/blog/author',
+                GetDescription: 'http://localhost:51393/api/blog/description',
 
                 GetComments: 'http://localhost:51393/api/comment/all',
                 GetCommentById: 'http://localhost:51393/api/comment/',
