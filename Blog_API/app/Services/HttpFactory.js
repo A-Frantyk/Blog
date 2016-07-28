@@ -6,6 +6,10 @@
 
     function HttpFactory($http, $q) {
         var promise;
+        var topic = {
+            topic_Id: 0,
+            topicT_itle: null
+        };
 
         return {
             getAsync: function (url, deferred) {

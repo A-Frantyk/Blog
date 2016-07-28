@@ -11,6 +11,9 @@ namespace Blog_API.App_Start
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("elmah.axd");
+
             routes.MapPageRoute(
                 routeName: "AngularRoute",
                 routeUrl: "Index",

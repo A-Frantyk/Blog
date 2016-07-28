@@ -152,15 +152,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\additionScripts\WritesPanel.js" />
     <Content Include="app\app.js" />
     <Content Include="app\appConsts.js" />
     <Content Include="app\Components\StartPageComponent.js" />
     <Content Include="app\Controllers\HomeController.js" />
     <Content Include="app\Controllers\IndexController.js" />
-    <Content Include="app\Controllers\WriteController.js" />
+    <Content Include="app\Controllers\WritesController.js" />
     <Content Include="app\Services\HttpFactory.js" />
     <Content Include="app\Services\HomeServices.js" />
     <Content Include="app\Services\IndexServices.js" />
+    <Content Include="app\Services\localStorage.js" />
     <Content Include="app\Services\TopicServices.js" />
     <Content Include="app\Services\WriteServices.js" />
     <Content Include="Content\bootstrap.css" />
@@ -988,7 +990,7 @@
     <Content Include="Views\Index.html" />
     <Content Include="Views\LogIn_Form.html" />
     <Content Include="Views\Home.html" />
-    <Content Include="Views\WritesPage.html" />
+    <Content Include="Views\Writes.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

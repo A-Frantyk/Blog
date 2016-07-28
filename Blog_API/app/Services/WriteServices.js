@@ -26,7 +26,6 @@
 
             return deffered.promise;
         }
-        
     };
 
     WriteServices.$inject = ['$q', 'HttpFactory', 'API_URL'];

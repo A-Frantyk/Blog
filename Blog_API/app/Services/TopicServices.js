@@ -11,6 +11,13 @@
 
             return deffered.promise;
         }
+
+        this.GetTopicById = function (id) {
+            var deffered = $q.defer();
+            HttpFactory.getAsync(API_URL.GetTopicByID + id, deffered);
+
+            return deffered.promise;
+        }
     };
 
     TopicServices.$inject = ['$q', 'HttpFactory', 'API_URL'];

@@ -61,7 +61,7 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("all/{topicId}")]
+        [Route("AllWrites/{topicId}")]
         public async Task<IEnumerable<string>> GetWritesTitle(int topicId)
         {
             var items = await UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicId);

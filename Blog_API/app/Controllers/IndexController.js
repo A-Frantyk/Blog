@@ -3,12 +3,14 @@
 
     angular.module('myApp')
            .controller('IndexController', IndexController);
-    function IndexController($scope, $http, $q, $stateParams, HttpFactory, API_URL, IndexServices, TopicServices) {
+    function IndexController($scope, $http, $q, $stateParams, HttpFactory, API_URL, IndexServices, TopicServices, ShareTopic) {
         $scope.User;
         $scope.Topics = [];
         $scope.getUserId = function () {
             return User.user_Number;
         };
+
+        $scope.Topic = ShareTopic;
 
         var User = {
             name: null,
@@ -42,8 +44,18 @@
                          console.log(error);
                      });
 
+        $scope.putTopicInfo = function (title, id) {
+            //console.log(localStorage.getItem("Writes"));
+            console.log(title);
+            console.log(id);
+            localStorage.setItem(title, id);
+        };
+
+        $scope.setCurrentTopic = function (topic) {
+            $scope.Topic = topic;
+        }
     };
 
-    IndexController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'IndexServices', 'TopicServices'];
+    IndexController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'IndexServices', 'TopicServices', 'ShareTopic'];
 
 })();
