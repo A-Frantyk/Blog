@@ -152,6 +152,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\additionScripts\ActiveNavLink.js" />
     <Content Include="app\additionScripts\WritesPanel.js" />
     <Content Include="app\app.js" />
     <Content Include="app\appConsts.js" />
@@ -163,6 +164,7 @@
     <Content Include="app\Services\HomeServices.js" />
     <Content Include="app\Services\IndexServices.js" />
     <Content Include="app\Services\localStorage.js" />
+    <Content Include="app\Services\ShareTopicService.js" />
     <Content Include="app\Services\TopicServices.js" />
     <Content Include="app\Services\WriteServices.js" />
     <Content Include="Content\bootstrap.css" />
