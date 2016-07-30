@@ -10,7 +10,7 @@
             return User.user_Number;
         };
 
-        $scope.Topic = ShareTopic;
+        //$scope.Topic = ShareTopic;
 
         var User = {
             name: null,
@@ -45,15 +45,14 @@
                      });
 
         $scope.putTopicInfo = function (title, id) {
-            //console.log(localStorage.getItem("Writes"));
             console.log(title);
             console.log(id);
             localStorage.setItem(title, id);
         };
 
-        $scope.setCurrentTopic = function (topic) {
-            $scope.Topic = topic;
-        }
+        //$scope.setCurrentTopic = function (topic) {
+        //    $scope.Topic = topic;
+        //}
     };
 
     IndexController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'IndexServices', 'TopicServices', 'ShareTopic'];

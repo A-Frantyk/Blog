@@ -21,6 +21,7 @@
     <script src="../scripts/angular-route.js"></script>
     <script src="../scripts/ngDialog.js"></script>
     <script src="../scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="../scripts/angular-animate.min.js"></script>
     <script src="../app/appConsts.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     
@@ -42,7 +43,7 @@
             <div class="container">
                 <ul class="nav navbar-nav">
                     <li class="nav-item" ng-repeat="topic in Topics">
-                        <a class="nav-link" href="Index.html#/write/all" ng-click="putTopicInfo(topic.topic_Title, topic.topic_Number)">{{topic.topic_Title}}</a>
+                        <a class="nav-link" href="Index#/write/all" ng-click="putTopicInfo(topic.topic_Title, topic.topic_Number)">{{topic.topic_Title}}</a>
                     </li>
                 </ul>
                 <div class="row p-r-2">
@@ -75,7 +76,7 @@
         </footer> <!-- /footer -->
 
     </div>
-    <script src="../app/additionScripts/WritesPanel.js"></script>
+    <!--<script src="../app/additionScripts/WritesPanel.js"></script>-->
     <script src="../app/additionScripts/ActiveNavLink.js"></script>
 </body>
 </html>
