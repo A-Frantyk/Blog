@@ -10,9 +10,7 @@
         var current_Topic = localStorage.getItem(currentTopicName);
         console.log("Current topic name " + currentTopicName + " and current topic id = " + current_Topic);
 
-        $scope.isCollapsed = true;
-
-        //$scope.Topic = ShareTopic;
+        $scope.Topic = ShareTopic;
 
         WriteServices.GetWritesByTopic(current_Topic)
                      .then(function (response) {

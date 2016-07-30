@@ -7,7 +7,7 @@
 
     <div class="container-fluid m-y-2" ng-repeat="write in Writes">
         <div class="card p-a-2">
-            <div class="card-title" ng-click="isCollapsed = !isCollapsed">
+            <div class="card-title">
                 <div class="row">
                     <h3 class="card-title col-md-12" style="margin: 0;">{{write.title}}</h3>
                 </div>
@@ -17,7 +17,7 @@
                     <span class="col-md-1 fa fa-thumbs-o-up pull-md-right" area-hidden="true" style="font-size: 20px;margin-top: 5px; "></span>
                 </div>
             </div>
-            <div class="card-text text-sm-center m-t-2" uib-collapse="isCollapsed">
+            <div class="card-text text-sm-center m-t-2">
                 <div class="card card-center">
                     <pre>{{write.description}}</pre>
                 </div>

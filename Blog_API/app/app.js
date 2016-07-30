@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict'
 
-    var myApp = angular.module('myApp', ['ui.router', 'ngDialog', 'ngRoute', 'ngResource','ui.bootstrap', 'CONST', 'ui.bootstrap','ngAnimate']);
+    var myApp = angular.module('myApp', ['ui.router', 'ngDialog', 'ngRoute', 'ngResource','ui.bootstrap', 'CONST']);
 
     myApp.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
         $routeProvider
