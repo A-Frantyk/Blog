@@ -13,6 +13,7 @@
         // Enable panel with some writes collapsed 
         // When page is loaded
         $scope.isCollapsed = true;
+        $scope.totalItems = 15;
 
         //$scope.Topic = ShareTopic;
 
@@ -32,9 +33,11 @@
                          $scope.currentTopicDescription = response.description;
                      });
         
-        $scope.$watch(function () { return ShareTopic.getTopicId(); },
+        $scope.$watch(function () {
+                        return ShareTopic.getTopicId();
+        },
+
                       function (value) {
-                        console.log();
                         WriteServices.GetWritesByTopic(value)
                                              .then(function (response) {
                                                  //console.log(response);

@@ -18,9 +18,11 @@
                 </div>
             </div>
             <div class="card-text text-sm-center m-t-2" uib-collapse="isCollapsed">
-                <div class="card card-center">
+                <div class="card card-center" style="max-height: 400px;overflow: auto;">
                     <pre>{{::write.description}}</pre>
                 </div>
+                <hr />
+                <ul uib-pager total-items="totalItems"></ul>
             </div>
         </div> 
     </div>
