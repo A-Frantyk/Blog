@@ -31,7 +31,7 @@
 
         HomeServices.GetBlogTitle()
                      .then(function (response) {
-                         console.log(response);
+                         //console.log(response);
                          Blog.title = response;
                          $scope.title = response;
                      })
@@ -50,7 +50,7 @@
 
         HomeServices.GetBlogDescription()
                      .then(function (response) {
-                         console.log(response);
+                         //console.log(response);
                          Blog.description = response;
                          $scope.description = response;
                      })

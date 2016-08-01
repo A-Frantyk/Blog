@@ -5,11 +5,25 @@
            .service('ShareTopic', ShareTopic);
 
     function ShareTopic() {
-        var Topic = {
-            id: 0,
-            title: ''
-        };
+        var topicID;
+        var topicName;
 
-        return Topic;
-    }
+        return {
+            getTopicId: function () {
+                return topicID;
+            },
+
+            setTopicId: function (id) {
+                topicID = id;
+            },
+
+            getTopicName: function () {
+                return topicName;
+            },
+
+            setTopicName: function (name) {
+                topicName = name;
+            }
+        }
+    };
 })();

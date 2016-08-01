@@ -28,7 +28,7 @@
         IndexServices.GetUserInfo()
                      .then(function (response) {
                          User = response;
-                         console.log(User);
+                         //console.log(User);
                          $scope.User = User;
                      })
                      .catch(function (error) {
@@ -37,7 +37,7 @@
 
         TopicServices.GetTopics()
                      .then(function (response) {
-                         console.log(response);
+                         //console.log(response);
                          $scope.Topics = response;
                      })
                      .catch(function (error) {
@@ -46,9 +46,11 @@
 
         $scope.putTopicInfo = function (title, id) {
             //console.log(localStorage.getItem("Writes"));
-            console.log(title);
-            console.log(id);
+            //console.log(title);
+            //console.log(id);
             localStorage.setItem(title, id);
+
+            ShareTopic.setTopicId(id);
         };
 
         $scope.setCurrentTopic = function (topic) {

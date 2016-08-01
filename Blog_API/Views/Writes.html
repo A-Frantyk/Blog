@@ -9,7 +9,7 @@
         <div class="card p-a-2">
             <div class="card-title" ng-click="isCollapsed = !isCollapsed">
                 <div class="row">
-                    <h3 class="card-title col-md-12" style="margin: 0;">{{write.title}}</h3>
+                    <h3 class="card-title col-md-12" style="margin: 0;">{{::write.title}}</h3>
                 </div>
                 <div class="row">
                     <h5 class="col-md-10" style="font-style: italic;">Author</h5>
@@ -19,7 +19,7 @@
             </div>
             <div class="card-text text-sm-center m-t-2" uib-collapse="isCollapsed">
                 <div class="card card-center">
-                    <pre>{{write.description}}</pre>
+                    <pre>{{::write.description}}</pre>
                 </div>
             </div>
         </div> 
