@@ -34,3 +34,15 @@ E:\Soft Serve courses\Blog\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrati
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csproj.GenerateResource.Cache
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.dll
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.pdb
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.UserCredentialClassAdded.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.DeleteUserCredentials_Table.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.AddUserCredential_table.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.EditUserCredentionalstable.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Relationship_UserUserCredentials.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.RemoveRelationship_betweentablesUser_UserCredentials.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Relationship_UserUserCredentials_edition2.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.removeRelationshipUser_UserCredentials.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.addNewColumnToThe_Userstable.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.Relationship_UserUserCredentials_edition4.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.deleteOneColumnFromUserstable.resources
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.AddRolesTable_WithRelationship_withUserstable.resources

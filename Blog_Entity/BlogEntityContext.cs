@@ -28,5 +28,16 @@ namespace Blog_Entity
         public DbSet<Likes> Likes { get; set; }
 
         public DbSet<Writes> Writes { get; set; }
+
+        public DbSet<UserCredentials> UserCredentials { get; set; }
+
+        public DbSet<Roles> Roles { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserCredentials>()
+                        .HasOptional(s => s.User)
+                        .WithOptionalPrincipal(a => a.UserCredentials);
+        }
     }
 }

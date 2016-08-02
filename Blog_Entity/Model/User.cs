@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Blog_Entity.Model
 {
-    public class User
+    public partial class User
     {
+        public User()
+        {
+            Roles = new HashSet<Roles>();
+        }
+
         [Key]
         public int User_Number { get; set; }
 
@@ -34,5 +40,9 @@ namespace Blog_Entity.Model
         public string Vk_Link { get; set; }
 
         public string Mail_Link { get; set; }
+        
+        public UserCredentials UserCredentials { get; set; }
+
+        public ICollection<Roles> Roles { get; set; }
     }
 }
