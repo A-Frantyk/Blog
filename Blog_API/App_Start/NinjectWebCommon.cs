@@ -74,6 +74,8 @@ namespace Blog_API.App_Start
             kernel.Bind(typeof(IFactory<,>)).To<TopicsFactory>().Named("TopicFCTR");
             kernel.Bind(typeof(IFactory<,>)).To<CommentsFactory>().Named("CommentsFCTR");
             kernel.Bind(typeof(IFactory<,>)).To<LikesFactory>().Named("LikesFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<UserCredentialsFactory>().Named("UserCredentialsFCTR");
+            kernel.Bind(typeof(IFactory<,>)).To<RolesFactory>().Named("RolesFCTR");
         }
 
         public static void RegisterNinject(HttpConfiguration configuration)

@@ -86,13 +86,17 @@
     <Compile Include="Factory\CommentsFactory.cs" />
     <Compile Include="Factory\IFactory.cs" />
     <Compile Include="Factory\LikesFactory.cs" />
+    <Compile Include="Factory\RolesFactory.cs" />
     <Compile Include="Factory\TopicsFactory.cs" />
+    <Compile Include="Factory\UserCredentialsFactory.cs" />
     <Compile Include="Factory\User_Factory.cs" />
     <Compile Include="Factory\Writes_Factory.cs" />
     <Compile Include="ModelDTO\BlogDTO.cs" />
     <Compile Include="ModelDTO\CommentsDTO.cs" />
     <Compile Include="ModelDTO\LikesDTO.cs" />
+    <Compile Include="ModelDTO\RolesDTO.cs" />
     <Compile Include="ModelDTO\TopicDTO.cs" />
+    <Compile Include="ModelDTO\UserCredentialsDTO.cs" />
     <Compile Include="ModelDTO\UserDTO.cs" />
     <Compile Include="ModelDTO\WritesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

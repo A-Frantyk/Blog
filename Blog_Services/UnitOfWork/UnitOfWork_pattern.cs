@@ -22,6 +22,8 @@ namespace Blog_Services.UnitOfWork
         private IGenericRepository<Likes> likesItemsRepository;
         private IGenericRepository<Topic> topicItemRepository;
         private IGenericRepository<User> userItemRepository;
+        private IGenericRepository<UserCredentials> userCredentialsItemRepository;
+        private IGenericRepository<Roles> rolesItemRepository;
 
         #endregion
 
@@ -53,7 +55,7 @@ namespace Blog_Services.UnitOfWork
             }
         }
         
-        [Inject]
+        //[Inject]
         public IGenericRepository<Writes> WritesItemRepository
         {
             get
@@ -103,6 +105,32 @@ namespace Blog_Services.UnitOfWork
                 }
 
                 return userItemRepository;
+            }
+        }
+
+        public IGenericRepository<UserCredentials> UserCredentialsItemRepository
+        {
+            get
+            {
+                if(this.userCredentialsItemRepository == null)
+                {
+                    this.userCredentialsItemRepository = new GenericRepository<UserCredentials>(context);
+                }
+
+                return userCredentialsItemRepository;
+            }
+        }
+
+        public IGenericRepository<Roles> RolesItemRepository
+        {
+            get
+            {
+                if(this.rolesItemRepository == null)
+                {
+                    this.rolesItemRepository = new GenericRepository<Roles>(context);
+                }
+
+                return rolesItemRepository;
             }
         }
 

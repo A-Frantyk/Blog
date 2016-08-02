@@ -21,5 +21,9 @@ namespace Blog_Services.UnitOfWork
         IGenericRepository<Likes> LikesItemRepository { get; }
 
         IGenericRepository<User> UserItemRepository { get; }
-    }
+
+        IGenericRepository<UserCredentials> UserCredentialsItemRepository { get; }
+
+        IGenericRepository<Roles> RolesItemRepository { get; }
+    } 
 }
