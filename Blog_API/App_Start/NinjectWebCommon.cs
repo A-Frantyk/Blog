@@ -68,6 +68,7 @@ namespace Blog_API.App_Start
             kernel.Bind<IUnitOfWork>().To<UnitOfWork_Pattern>();
             kernel.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>));
 
+
             kernel.Bind(typeof(IFactory<,>)).To<Writes_Factory>().Named("WritesFCTR");
             kernel.Bind(typeof(IFactory<,>)).To<User_Factory>().Named("UserFCTR");
             kernel.Bind(typeof(IFactory<,>)).To<BlogFactory>().Named("BlogFCTR");

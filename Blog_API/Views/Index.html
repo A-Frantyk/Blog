@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html>
 <html>
-<head  lang="en">
+<head lang="en">
     <title>Blog</title>
     <!--<base href="http://localhost:51393/">-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../Content/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../Content/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
     <link rel="stylesheet" href="../Content/font-awesome.min.css">
     <link rel="stylesheet" href="../Content/stylesheet.css">
 
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="../scripts/angular.js"></script>
     <script src="../scripts/angular-resource.min.js"></script>
     <script src="../scripts/AngularUI/ui-router.min.js"></script>
@@ -23,8 +23,8 @@
     <script src="../scripts/angular-ui/ui-bootstrap.js"></script>
     <script src="../scripts/angular-animate.min.js"></script>
     <script src="../app/appConsts.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    
+
+
     <script type="text/javascript" src="../app/app.js"></script>
     <script src="../app/Services/HttpFactory.js"></script>
     <script src="../app/Services/IndexServices.js"></script>
@@ -36,7 +36,6 @@
     <script src="../app/Services/WriteServices.js"></script>
     <script src="../app/Services/ShareTopicService.js"></script>
 </head>
-
 <body ng-app="myApp">
     <div ng-controller="IndexController">
         <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
@@ -52,18 +51,14 @@
                 </div>
             </div>
         </nav>
-
         <div ng-view></div>
-
         <hr style="margin-bottom: -5px;" />
-
         <!-- footer -->
         <footer class="container" id="wrap">
             <div class="row">
                 <div class="col-md-7">
                     <small>&copy; 2016 {{User.name + ' ' + User.last_Name}} Simple Blog, @{{User.last_Name}}</small>
                 </div>
-
                 <div class="col-md-5 p-b-3">
                     <ul class="social-network social-circle">
                         <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -74,6 +69,35 @@
                 </div>
             </div>
         </footer> <!-- /footer -->
+
+        <!-- Log in form -->
+        <div id="log" class="modal hide fade" style="display: none; ">
+            <div class="modal-dialog modal-content" role="document">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">
+                        <h4 class="modal-title" style="color: black;">Log in to the blog</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="name" class="form-control-label p-l-0" style="color: black;">Name or Email</label>
+                            <input type="text" class="form-control" id="name">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="mail" class="form-control-label p-l-0" style="color: black;">Password</label>
+                            <input type="email" class="form-control form-control-danger" id="mail">
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /Log in form -->
 
     </div>
     <!--<script src="../app/additionScripts/WritesPanel.js"></script>-->
