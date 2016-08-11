@@ -15,8 +15,12 @@ namespace Blog_Entity.Model
 
         public string Login { get; set; }
 
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        
+
+        [DataType(DataType.Password)]
+        public string ConfirmationPassword { get; set; }
+
         public User User { get; set; }
     }
 }

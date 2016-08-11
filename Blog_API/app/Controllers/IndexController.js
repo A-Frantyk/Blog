@@ -3,7 +3,7 @@
 
     angular.module('myApp')
            .controller('IndexController', IndexController);
-    function IndexController($scope, $http, $q, $stateParams, HttpFactory, API_URL, IndexServices, TopicServices, ShareTopic) {
+    function IndexController($scope, $http, $q, $stateParams,$location,  HttpFactory, API_URL, IndexServices, TopicServices, ShareTopic, authService) {
         $scope.User;
         $scope.Topics = [];
         $scope.getUserId = function () {
@@ -24,6 +24,28 @@
             mail_Link: null,
             age: 0
         };
+
+        /********* from LoginController *************/
+        
+        $scope.loginData = {
+            userName: "",
+            password: ""
+        };
+
+        $scope.message = "";
+
+        $scope.login = function () {
+            authService.login($scope.loginData)
+                       .then(function (response) {
+                           $location.path('/');
+                       },
+                       function (error) {
+                           $scope.message = error.error_description;
+                       });
+        }
+
+
+        /********************************************/
 
         IndexServices.GetUserInfo()
                      .then(function (response) {
@@ -58,6 +80,6 @@
         }
     };
 
-    IndexController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'IndexServices', 'TopicServices', 'ShareTopic'];
+    IndexController.$inject = ['$scope', '$http', '$q', '$stateParams', '$location', 'HttpFactory', 'API_URL', 'IndexServices', 'TopicServices', 'ShareTopic', 'authService'];
 
 })();

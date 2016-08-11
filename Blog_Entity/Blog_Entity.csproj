@@ -38,9 +38,25 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Razor">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
@@ -121,6 +137,10 @@
     <Compile Include="Migrations\201608021416505_AddRolesTable_WithRelationship_withUsers-table.Designer.cs">
       <DependentUpon>201608021416505_AddRolesTable_WithRelationship_withUsers-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs" />
+    <Compile Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.Designer.cs">
+      <DependentUpon>201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Blog.cs" />
     <Compile Include="Model\Comments.cs" />
@@ -187,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608021416505_AddRolesTable_WithRelationship_withUsers-table.resx">
       <DependentUpon>201608021416505_AddRolesTable_WithRelationship_withUsers-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.resx">
+      <DependentUpon>201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

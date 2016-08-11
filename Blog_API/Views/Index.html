@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <title>Blog</title>
-    <!--<base href="http://localhost:51393/">-->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,6 +16,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
     <script src="../scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-local-storage.min.js"></script>
     <script src="../scripts/angular-resource.min.js"></script>
     <script src="../scripts/AngularUI/ui-router.min.js"></script>
     <script src="../scripts/angular-route.js"></script>
@@ -23,9 +24,10 @@
     <script src="../scripts/angular-ui/ui-bootstrap.js"></script>
     <script src="../scripts/angular-animate.min.js"></script>
     <script src="../app/appConsts.js"></script>
-
-
     <script type="text/javascript" src="../app/app.js"></script>
+    
+    <script src="../app/Controllers/LoginController.js"></script>
+    
     <script src="../app/Services/HttpFactory.js"></script>
     <script src="../app/Services/IndexServices.js"></script>
     <script src="../app/Controllers/IndexController.js"></script>
@@ -35,6 +37,11 @@
     <script src="../app/Services/TopicServices.js"></script>
     <script src="../app/Services/WriteServices.js"></script>
     <script src="../app/Services/ShareTopicService.js"></script>
+    <script src="../app/Interceptors/authInterceptorService.js"></script>
+    <script src="../app/Services/authService.js"></script>
+    <script src="../app/Services/LoginServices.js"></script>
+
+    <base href="/">
 </head>
 <body ng-app="myApp">
     <div ng-controller="IndexController">
@@ -47,7 +54,8 @@
                 </ul>
                 <div class="row p-r-2">
                     <a class="navbar-brand pull-sm-right  hidden-xs-down">Author</a>
-                    <button type="button" class="btn btn-primary pull-sm-right" data-toggle="modal" data-target="#log">Log in</button>
+                    <button type="button" class="btn btn-primary pull-sm-right" data-target="#log" data-toggle="modal" href="Index#/login">Login</button>
+                    <a class="btn btn-primary" ng-hide="!authentification.isAuth">Logout</a>
                 </div>
             </div>
         </nav>
@@ -61,10 +69,10 @@
                 </div>
                 <div class="col-md-5 p-b-3">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoVk" title="VK"><i class="fa fa-vk"></i></a></li>
+                        <li><a href="" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="" class="icoVk" title="VK"><i class="fa fa-vk"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -86,13 +94,13 @@
                     <form>
                         <fieldset class="form-group">
                             <label for="name" class="form-control-label p-l-0" style="color: black;">Name or Email</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" ng-model="loginData.userName" required autofocus>
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="mail" class="form-control-label p-l-0" style="color: black;">Password</label>
-                            <input type="password" class="form-control form-control-danger" id="mail">
+                            <input type="password" class="form-control form-control-danger" id="mail" ng-model="loginData.password" required>
                         </fieldset>
-                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                        <button type="submit" class="btn btn-primary btn-lg" ng-click="login()">Login</button>
                     </form>
                 </div>
             </div>

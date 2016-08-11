@@ -108,3 +108,14 @@ E:\Soft Serve courses\Blog\Blog_Entity\Blog_API_UnitTest\bin\Debug\System.Web.We
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.csprojResolveAssemblyReference.cache
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.dll
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_API_UnitTest\obj\Debug\Blog_API_UnitTest.pdb
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Owin.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.xml
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.Security.dll
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.Security.xml
