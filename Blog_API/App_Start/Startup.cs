@@ -1,11 +1,14 @@
 ﻿using Blog_API.Authentification_Authorization.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
+using Ninject.Web.WebApi;
 using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
+using System.Web.Routing;
 
 [assembly: OwinStartup(typeof(Blog_API.App_Start.Startup))]
 
@@ -16,7 +19,15 @@ namespace Blog_API.App_Start
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
-            //Rest of code is here;
+
+            HttpConfiguration config = new HttpConfiguration();
+            NinjectWebCommon.RegisterNinject(config);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            config.MapHttpAttributeRoutes();
+            WebApiConfig.Register(config);
+            app.UseWebApi(config);
+            
         }
 
         public void ConfigureOAuth(IAppBuilder app)

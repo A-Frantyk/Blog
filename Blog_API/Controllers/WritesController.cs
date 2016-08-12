@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/write")]
+    [AllowAnonymous]
     public class WritesController : BaseController.BaseController<WritesDTO, Writes>
     {
         public WritesController( IUnitOfWork unit, [Named("WritesFCTR")] IFactory<WritesDTO, Writes> factoryObj) : base(unit, factoryObj)
@@ -35,9 +36,9 @@ namespace Blog_API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public HttpResponseMessage GetWritesByID(int id)
+        public async Task<HttpResponseMessage> GetWritesByID(int id)
         {
-            var write = UnitOfWork.WritesItemRepository.GetByID(id);
+            var write = await UnitOfWork.WritesItemRepository.GetByID(id);
 
             if(write != null)
             {
@@ -61,15 +62,30 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
-        [Route("AllWrites/{topicId}")]
-        public async Task<IEnumerable<string>> GetWritesTitle(int topicId)
+        [Route("allWrites/{topicId}")]
+        public async Task<IHttpActionResult> GetWritesTitle(int topicId)
         {
             var items = await UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicId);
 
-            var titles = items.Select(a => a.Title);
+            var result = items.Select(a => new {
+                title = a.Title,
+                id = a.Write_Number
+            });
 
-            return titles;
+            return Ok(result);
         }
+
+        [HttpGet]
+        [Route("body/{writeId}")]
+        public async Task<IHttpActionResult> GetWritesBody(int writeId)
+        {
+            var items = await UnitOfWork.WritesItemRepository.GetByID(writeId);
+
+            var result = items.Description;
+
+            return Ok(result);
+        }
+        
 
         [HttpPut]
         [Route("edit")]

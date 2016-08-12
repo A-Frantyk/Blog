@@ -91,6 +91,7 @@
     <Compile Include="Factory\UserCredentialsFactory.cs" />
     <Compile Include="Factory\User_Factory.cs" />
     <Compile Include="Factory\Writes_Factory.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ModelDTO\BlogDTO.cs" />
     <Compile Include="ModelDTO\CommentsDTO.cs" />
     <Compile Include="ModelDTO\LikesDTO.cs" />

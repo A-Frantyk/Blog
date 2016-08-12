@@ -78,6 +78,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ControllersTest\WritesController_Test.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,11 +2,13 @@
     angular.module('CONST', [])
             .constant('API_URL', {
 
-                Writes: 'http://localhost:51393/api/write/all',
+                Writes: 'http://localhost:51393/api/write/all/',
                 GetWritesByID: 'http://localhost:51393/api/write/',
                 GetWritesByTopicID: 'http://localhost:51393/api/write/getbytopicId/',
                 EditWrite: 'http://localhost:51393/api/write/edit',
                 AddWrite: 'http://localhost:51393/api/write/add',
+                WriteBody: 'http://localhost:51393/api/write/body/',
+                AllWritesTitle: 'http://localhost:51393/api/write/allWrites/',
 
                 Topics: 'http://localhost:51393/api/topic/all',
                 GetTopicByID: 'http://localhost:51393/api/topic/',

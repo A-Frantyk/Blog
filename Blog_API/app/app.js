@@ -32,7 +32,6 @@
             controller: "LoginController"
         });
 
-        //$locationProvider.html5Mode(true);
     }]);
 
     myApp.config(['$httpProvider', function ($httpProvider) {

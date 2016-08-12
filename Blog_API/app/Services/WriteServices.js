@@ -22,9 +22,16 @@
 
         this.GetWritesTitle = function (topicId) {
             var deffered = $q.defer();
-            HttpFactory.getAsync(API_URL.Writes + '/' + topicId, deffered);
+            HttpFactory.getAsync(API_URL.AllWritesTitle + topicId, deffered);
 
             return deffered.promise;
+        }
+
+        this.GetWriteBody = function (writeId) {
+            var deferred = $q.defer();
+            HttpFactory.getAsync(API_URL.WriteBody + writeId, deferred);
+
+            return deferred.promise;
         }
     };
 

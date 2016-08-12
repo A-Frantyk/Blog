@@ -12,7 +12,7 @@ namespace Blog_Services.UnitOfWork
     {
         Task<IQueryable<TEntity>> Get(Expression<Func<TEntity, bool>> filter = null,
                                 Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
-        TEntity GetByID(object id);
+        Task<TEntity> GetByID(object id);
         void Insert(TEntity entityToInsert);
 
         void Update(TEntity entityToUpdate);

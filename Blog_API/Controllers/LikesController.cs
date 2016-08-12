@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/like")]
+    [AllowAnonymous]
     public class LikesController : BaseController.BaseController<LikesDTO, Likes>
     {
         public LikesController(IUnitOfWork unit, [Named("LikesFCTR")] IFactory<LikesDTO, Likes> likesFactory) : base(unit, likesFactory)

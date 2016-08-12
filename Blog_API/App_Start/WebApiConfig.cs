@@ -20,7 +20,7 @@ namespace Blog_API
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            //config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -34,6 +34,7 @@ namespace Blog_API
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();  // send json keys into camelCase style
+
         }
     }
 }

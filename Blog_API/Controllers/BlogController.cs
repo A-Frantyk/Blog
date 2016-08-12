@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/blog")]
+    [AllowAnonymous]
     public class BlogController : BaseController.BaseController<BlogDTO, Blog>
     {
         public BlogController(IUnitOfWork unit, [Named("BlogFCTR")] IFactory<BlogDTO , Blog> blogFactory)

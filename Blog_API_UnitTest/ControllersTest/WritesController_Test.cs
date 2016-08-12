@@ -22,8 +22,12 @@ namespace Blog_API_UnitTest.ControllersTest
         private Mock<IUnitOfWork> _unitMock = null;
         private Mock<IFactory<WritesDTO, Writes>> _factoryMock = null;
 
+#pragma warning disable CS0169 // The field 'WritesController_Test._unit' is never used
         private IUnitOfWork _unit;
+#pragma warning restore CS0169 // The field 'WritesController_Test._unit' is never used
+#pragma warning disable CS0169 // The field 'WritesController_Test._factory' is never used
         private IFactory<WritesDTO, Writes> _factory;
+#pragma warning restore CS0169 // The field 'WritesController_Test._factory' is never used
 
         [SetUp]
         public void SetUp()

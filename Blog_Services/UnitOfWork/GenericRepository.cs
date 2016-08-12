@@ -25,7 +25,9 @@ namespace Blog_Services.UnitOfWork
             dbSet = context.Set<TEntity>();
         }
 
+#pragma warning disable CS1998 // This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
         public async Task<IQueryable<TEntity>> Get(
+#pragma warning restore CS1998 // This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null)
 
@@ -47,9 +49,9 @@ namespace Blog_Services.UnitOfWork
             }
         }
 
-        public virtual TEntity GetByID(object id)
+        public virtual async Task<TEntity> GetByID(object id)
         {
-            return dbSet.Find(id);
+            return await dbSet.FindAsync(id);
         }
 
         public async Task<TEntity> GetByIdAsync(object id)

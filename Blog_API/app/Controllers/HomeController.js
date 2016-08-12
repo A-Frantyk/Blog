@@ -34,9 +34,6 @@
                          //console.log(response);
                          Blog.title = response;
                          $scope.title = response;
-                     })
-                     .catch(function (error) {
-                         this.error = error;
                      });
 
         //IndexServices.GetBlogAuthor()
@@ -53,9 +50,6 @@
                          //console.log(response);
                          Blog.description = response;
                          $scope.description = response;
-                     })
-                     .catch(function (error) {
-                         this.error = error;
                      });
 
     };

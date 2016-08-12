@@ -14,6 +14,7 @@ using System.Web.Http;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/comment")]
+    [AllowAnonymous]
     public class CommentsController : BaseController.BaseController<CommentsDTO, Comments>
     {
         public CommentsController(IUnitOfWork unit, [Named("CommentsFCTR")] IFactory<CommentsDTO, Comments> commentFactory) : base(unit, commentFactory)

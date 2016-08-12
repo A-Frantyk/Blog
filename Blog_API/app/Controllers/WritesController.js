@@ -17,6 +17,32 @@
 
         //$scope.Topic = ShareTopic;
 
+         
+        //$scope.getWriteBody = function (writeName) {
+
+        //    var writeId = 0;
+
+        //    for (var i = 0; i < $scope.WritesTitle.length; i++) {
+        //        var title = $scope.WritesTitle[i].title;
+
+        //        if (writeName === title) {
+        //            $scope.WriteId = $scope.WritesTitle[i].id;
+        //        }
+        //        else {
+        //            return;
+        //        }
+        //    }
+
+        //    WriteServices.GetWriteBody(WriteId)
+        //                             .then(function (response) {
+        //                                 console.log(response);
+        //                                 $scope.writeBody = response;
+        //                             })
+        //                             .catch(function (error) {
+        //                                 console.log(error);
+        //                             });
+        //};
+
         WriteServices.GetWritesByTopic($scope.current_Topic)
                      .then(function (response) {
                          //console.log(response);
@@ -47,6 +73,15 @@
                                              .catch(function (error) {
                                                  console.log(error);
                                              });
+
+                        WriteServices.GetWritesTitle(value)
+                                     .then(function (response) {
+                                         console.log(response);
+                                         $scope.WritesTitle = response;
+                                     })
+                                     .catch(function (error) {
+                                         console.log(error);
+                                     });
 
                         TopicServices.GetTopicById(value)
                                                        .then(function (response) {

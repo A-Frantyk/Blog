@@ -15,6 +15,7 @@ using System.Web.Http;
 namespace Blog_API.Controllers
 {
     [RoutePrefix("api/user")]
+    [AllowAnonymous]
     public class UserController : BaseController<UserDTO, User>
     {
         public UserController(IUnitOfWork unit, [Named("UserFCTR")] IFactory<UserDTO, User> factoryObj) : base(unit, factoryObj)
@@ -37,9 +38,9 @@ namespace Blog_API.Controllers
 
         [HttpGet]
         [Route("{userID}")]
-        public HttpResponseMessage GetUserByID(int userID)
+        public async Task<HttpResponseMessage> GetUserByID(int userID)
         {
-            var user = UnitOfWork.UserItemRepository.GetByID(userID);
+            var user = await UnitOfWork.UserItemRepository.GetByID(userID);
 
             if (user != null)
             {
