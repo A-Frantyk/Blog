@@ -5,16 +5,19 @@
         <hr class="m-y-1">
     </div>
 
-    <div class="container-fluid m-y-2" ng-repeat="write in Writes">
+    <div class="container-fluid m-y-2" ng-repeat="write in Writes | orderBy: '-write_Number'">
         <div class="card p-a-2">
             <div class="card-title" ng-click="isCollapsed = !isCollapsed">
                 <div class="row">
-                    <h3 class="card-title col-md-12" style="margin: 0;" ng-click="getWriteBody(WritesTitle.title)">{{::write.title}}</h3>
+                    <h3 class="card-title col-md-9" style="margin: 0;">{{::write.title}}</h3>
+                    <i class="fa fa-pencil col-md-1 p-a-0" aria-hidden="true" ng-hide="!authentication.isAuth"></i>
+                    <i class="fa fa-floppy-o col-md-1 p-a-0" aria-hidden="true" ng-hide="!authentication.isAuth"></i>
+                    <i class="fa fa-trash-o col-md-1 p-a-0" aria-hidden="true" ng-hide="!authentication.isAuth"></i>
                 </div>
                 <div class="row">
-                    <h5 class="col-md-10" style="font-style: italic;">Author</h5>
+                    <h5 class="col-md-10" style="font-style: italic;">{{write.author_Name + ' ' + write.author_LastName}}</h5>
                     <p class="col-md-1 text-left text-uppercase" style="font-size: 12px; margin: 5px 0 0 0;">Comments</p>
-                    <span class="col-md-1 fa fa-thumbs-o-up pull-md-right" area-hidden="true" style="font-size: 20px;margin-top: 5px; "></span>
+                    <span class="col-md-1 fa fa-thumbs-o-up pull-md-right" area-hidden="true" style="font-size: 20px;margin-top: 5px; "><span ng-show="write.likes !== 0">{{write.likes}}</span></span>
                 </div>
             </div>
             <div class="card-text text-sm-center m-t-2" uib-collapse="isCollapsed">

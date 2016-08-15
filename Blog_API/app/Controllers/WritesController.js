@@ -1,109 +1,100 @@
 ﻿(function () {
-    'use strict'
+	'use strict'
 
-    angular.module('myApp')
+	angular.module('myApp')
            .controller('WritesController', WritesController);
 
-    function WritesController($scope, $http, $q, $stateParams, HttpFactory, API_URL, WriteServices, TopicServices, ShareTopic) {
-        
-        var currentTopicName = $('.active').children('a').text();
-        $scope.current_Topic = localStorage.getItem(currentTopicName);
-        //console.log("Current topic name " + currentTopicName + " and current topic id = " + $scope.current_Topic);
+	function WritesController($scope, $http, $q, $stateParams, HttpFactory, API_URL, WriteServices, TopicServices, ShareTopic, IndexServices, LikesService) {
 
-        // Enable panel with some writes collapsed 
-        // When page is loaded
-        $scope.isCollapsed = true;
-        $scope.totalItems = 15;
+		var currentTopicName = $('.active').children('a').text();
 
-        //$scope.Topic = ShareTopic;
+		var Writes = {
+			write_Number: 0,
+			topic_Number: 0,
+			title: null,
+			description: null,
+			author: 0,
+			date: null,
+			time: null,
+			author_Name: null,
+			author_LastName: null,
+			likes: 0
+		};
 
-         
-        //$scope.getWriteBody = function (writeName) {
+		$scope.current_Topic = localStorage.getItem(currentTopicName);
+		$scope.isCollapsed = true;
+		$scope.totalItems = 15;
+		
 
-        //    var writeId = 0;
-
-        //    for (var i = 0; i < $scope.WritesTitle.length; i++) {
-        //        var title = $scope.WritesTitle[i].title;
-
-        //        if (writeName === title) {
-        //            $scope.WriteId = $scope.WritesTitle[i].id;
-        //        }
-        //        else {
-        //            return;
-        //        }
-        //    }
-
-        //    WriteServices.GetWriteBody(WriteId)
-        //                             .then(function (response) {
-        //                                 console.log(response);
-        //                                 $scope.writeBody = response;
-        //                             })
-        //                             .catch(function (error) {
-        //                                 console.log(error);
-        //                             });
-        //};
-
-        WriteServices.GetWritesByTopic($scope.current_Topic)
-                     .then(function (response) {
-                         //console.log(response);
-                         $scope.Writes = response;
-                     })
-                     .catch(function (error) {
-                         //console.log(error);
-                     });
-
-        TopicServices.GetTopicById($scope.current_Topic)
-                     .then(function (response) {
-                         //console.log(response);
-                         $scope.currentTopicName = response.topic_Title;
-                         $scope.currentTopicDescription = response.description;
-                     });
-        
-        $scope.$watch(function () {
-                        return ShareTopic.getTopicId();
-        },
+		$scope.$watch(function () {
+			return ShareTopic.getTopicId();
+		},
 
                       function (value) {
-                        WriteServices.GetWritesByTopic(value)
-                                             .then(function (response) {
-                                                 //console.log(response);
-                                                 $scope.Writes = response;
-                                                 //return response;
-                                             })
-                                             .catch(function (error) {
-                                                 console.log(error);
-                                             });
+                      	WriteServices.GetWritesByTopic(value)
+									 .then(function (response) {
 
-                        WriteServices.GetWritesTitle(value)
-                                     .then(function (response) {
-                                         console.log(response);
-                                         $scope.WritesTitle = response;
-                                     })
-                                     .catch(function (error) {
-                                         console.log(error);
-                                     });
 
-                        TopicServices.GetTopicById(value)
-                                                       .then(function (response) {
-                                                           //console.log(response.topic_Title);
-                                                           $scope.currentTopicName = response.topic_Title;
-                                                           //return response.topic_Title;
-                                                       })
-                                                       .catch(function (error) {
-                                                           console.log(error);
-                                                       });
+										Writes = response;
+										for (var i = 0; i < response.length; i++) {
+											 IndexServices.GetUserByID(response[i].author)
+											              .then(function (response) {
+																 Writes.author_Name = response.name;
+																 Writes.author_LastName = response.last_Name
+														  })
+														  .catch(function (err) {
+																 console.log(err);
+														  });
 
-                        TopicServices.GetTopicById(value)
-                                                              .then(function (response) {
-                                                                  //console.log(response.description);
-                                                                  $scope.currentTopicDescription = response.description;
-                                                                  //return response.description;
-                                                              })
-                                                              .catch(function (error) {
-                                                                  console.log(error);
-                                                              });
-        },true);
-    }
+											LikesService.GetLikesByWrite(response[i].write_Number)
+														 .then(function (response) {
+														 	if (response !== null) {
+														 		Writes.likes = response.like;
+														 	}
+														 })
+													     .catch(function (err) {
+													     	console.log(err);
+													     });
+										}
 
-    WritesController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'WriteServices', 'TopicServices', 'ShareTopic'];
+										$scope.Writes = Writes;
+										
+										console.log(Writes);
+
+										})
+										.catch(function (error) {
+											 	console.log(error);
+										});
+
+                      	WriteServices.GetWritesTitle(value)
+									 .then(function (response) {
+									 	console.log(response);
+									 	$scope.WritesTitle = response;
+									 })
+									 .catch(function (error) {
+									 	console.log(error);
+									 });
+
+                      	TopicServices.GetTopicById(value)
+													   .then(function (response) {
+													   	$scope.currentTopicName = response.topic_Title;
+													   })
+													   .catch(function (error) {
+													   	console.log(error);
+													   });
+
+                      	TopicServices.GetTopicById(value)
+															  .then(function (response) {
+															  	$scope.currentTopicDescription = response.description;
+															  })
+															  .catch(function (error) {
+															  	console.log(error);
+															  });
+
+
+                      }, true);
+
+	};
+
+	WritesController.$inject = ['$scope', '$http', '$q', '$stateParams', 'HttpFactory', 'API_URL', 'WriteServices', 'TopicServices', 'ShareTopic', 'IndexServices', 'LikesService'];
 })();

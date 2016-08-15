@@ -62,6 +62,40 @@ namespace Blog_API.Controllers
         }
 
         [HttpGet]
+        [Route("fullinfo/{topicId}")]
+        public async Task<IHttpActionResult> GetWritesFullInfo(int topicId)
+        {
+            var write_items = await UnitOfWork.WritesItemRepository.Get(i => i.Topic_Number == topicId);
+
+            IEnumerable<WriteFullInfoDTO> writes = write_items.Select(w => new WriteFullInfoDTO
+            {
+                Write_Number = w.Write_Number,
+                Topic_Number = w.Topic_Number,
+                Title = w.Title,
+                Description = w.Description,
+                Author = w.Author,
+                Date = w.Date,
+                Time = w.Time
+            });
+
+            foreach(var write in writes)
+            {
+                var userId = write.Author;
+
+                if(userId != 0)
+                {
+                    var user_Item = await UnitOfWork.UserItemRepository.GetByID(userId);
+
+                    write.AuthorName = user_Item.Name;
+                    write.AuthorLast_Name = user_Item.Last_Name;
+                }
+            }
+
+            return Ok(writes);
+        } 
+
+
+        [HttpGet]
         [Route("allWrites/{topicId}")]
         public async Task<IHttpActionResult> GetWritesTitle(int topicId)
         {

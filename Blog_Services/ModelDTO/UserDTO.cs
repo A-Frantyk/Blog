@@ -8,6 +8,7 @@ namespace Blog_Services.ModelDTO
 {
     public class UserDTO
     {
+
         public int User_Number { get; set; }
         
         public string Name { get; set; }
@@ -27,5 +28,7 @@ namespace Blog_Services.ModelDTO
         public string Vk_Link { get; set; }
 
         public string Mail_Link { get; set; }
+
+        
     }
 }

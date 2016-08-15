@@ -1,0 +1,28 @@
+﻿<!-- Log in form -->
+<div id="log" class="modal hide fade" style="display: none; ">
+    <div class="modal-dialog modal-content" role="document">
+
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-title">
+                <h4 class="modal-title" style="color: black;">Log in to the blog</h4>
+            </div>
+        </div>
+        <div class="modal-body">
+            <form>
+                <fieldset class="form-group">
+                    <label for="name" class="form-control-label p-l-0" style="color: black;">Name or Email</label>
+                    <input type="text" class="form-control" id="name" ng-model="loginData.userName" required autofocus>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="mail" class="form-control-label p-l-0" style="color: black;">Password</label>
+                    <input type="password" class="form-control form-control-danger" id="mail" ng-model="loginData.password" required>
+                </fieldset>
+                <button type="submit" class="btn btn-primary btn-lg" ng-click="login()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Log in form -->

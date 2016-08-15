@@ -119,5 +119,3 @@ D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.S
 D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Microsoft.Owin.Security.xml
 D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\System.Web.Http.Owin.dll
 D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\System.Web.Http.Owin.xml
-D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Blog_API_UnitTest.dll.CodeAnalysisLog.xml
-D:\.Net sample projects\Blog_Entity\Blog_API_UnitTest\bin\Debug\Blog_API_UnitTest.dll.lastcodeanalysissucceeded

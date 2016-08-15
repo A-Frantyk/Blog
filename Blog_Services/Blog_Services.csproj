@@ -90,6 +90,7 @@
     <Compile Include="Factory\TopicsFactory.cs" />
     <Compile Include="Factory\UserCredentialsFactory.cs" />
     <Compile Include="Factory\User_Factory.cs" />
+    <Compile Include="Factory\WritesFullInfo_Factory.cs" />
     <Compile Include="Factory\Writes_Factory.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ModelDTO\BlogDTO.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="ModelDTO\TopicDTO.cs" />
     <Compile Include="ModelDTO\UserCredentialsDTO.cs" />
     <Compile Include="ModelDTO\UserDTO.cs" />
+    <Compile Include="ModelDTO\WriteFullInfoDTO.cs" />
     <Compile Include="ModelDTO\WritesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork\GenericRepository.cs" />

@@ -3,7 +3,7 @@
 
     angular.module('myApp')
            .controller('IndexController', IndexController);
-    function IndexController($scope, $http, $q, $stateParams,$location,  HttpFactory, API_URL, IndexServices, TopicServices, ShareTopic, authService) {
+    function IndexController($scope, $http, $q, $stateParams, $location, HttpFactory, API_URL, IndexServices, TopicServices, ShareTopic, authService) {
         $scope.User;
         $scope.Topics = [];
         $scope.getUserId = function () {
@@ -42,7 +42,14 @@
                        function (error) {
                            $scope.message = error.error_description;
                        });
-        }
+        };
+
+        $scope.logOut = function () {
+            authService.logOut();
+            $location.path('/Home');
+        };
+
+        $scope.authentication = authService.authentification;
 
 
         /********************************************/

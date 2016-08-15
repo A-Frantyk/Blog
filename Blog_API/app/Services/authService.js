@@ -59,7 +59,9 @@
         };
 
         var _logOut = function () {
-            localStorageService.remove('suthorizationData');
+            console.log("authService: " + localStorageService.get('authorizationData'));
+
+            localStorageService.remove('authorizationData');
 
             _authentification.isAuth = false;
             _authentification.userName = "";

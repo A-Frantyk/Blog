@@ -214,9 +214,11 @@
     <Content Include="app\Services\HttpFactory.js" />
     <Content Include="app\Services\HomeServices.js" />
     <Content Include="app\Services\IndexServices.js" />
+    <Content Include="app\Services\LikesService.js" />
     <Content Include="app\Services\LoginServices.js" />
     <Content Include="app\Services\ShareTopicService.js" />
     <Content Include="app\Services\TopicServices.js" />
+    <Content Include="app\Services\UserService.js" />
     <Content Include="app\Services\WriteServices.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -291,6 +293,7 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <Content Include="scripts\angular-local-storage.min.js.map" />
+    <None Include="Properties\PublishProfiles\Blog.pubxml" />
     <None Include="scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="scripts\i18n\angular-locale_aa-er.js" />

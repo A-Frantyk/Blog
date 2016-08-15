@@ -35,7 +35,7 @@
 
                 GetLikes: 'http://localhost:51393/api/like/all',
                 GetLikesByWriteId: 'http://localhost:51393/api/like/byWriteId/',
+                GetLikesByComment: 'http://localhost:51393/api/like/commentId',
                 AddLike: 'http://localhost:51393/api/like/add',
-
             });
 })();

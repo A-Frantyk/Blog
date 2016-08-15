@@ -37,5 +37,3 @@ E:\Soft Serve courses\Blog\Blog_Entity\Blog_Services_UnitTests\obj\Debug\Blog_Se
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_Services_UnitTests\obj\Debug\Blog_Services_UnitTests.dll
 E:\Soft Serve courses\Blog\Blog_Entity\Blog_Services_UnitTests\obj\Debug\Blog_Services_UnitTests.pdb
 D:\.Net sample projects\Blog_Entity\Blog_Services_UnitTests\bin\Debug\Blog_Services_UnitTests.dll.config
-D:\.Net sample projects\Blog_Entity\Blog_Services_UnitTests\bin\Debug\Blog_Services_UnitTests.dll.CodeAnalysisLog.xml
-D:\.Net sample projects\Blog_Entity\Blog_Services_UnitTests\bin\Debug\Blog_Services_UnitTests.dll.lastcodeanalysissucceeded
