@@ -211,6 +211,7 @@
     <Content Include="app\Controllers\WritesController.js" />
     <Content Include="app\Interceptors\authInterceptorService.js" />
     <Content Include="app\Services\authService.js" />
+    <Content Include="app\Services\CommentsService.js" />
     <Content Include="app\Services\HttpFactory.js" />
     <Content Include="app\Services\HomeServices.js" />
     <Content Include="app\Services\IndexServices.js" />
@@ -1041,6 +1042,11 @@
     <Content Include="scripts\i18n\angular-locale_zu.js" />
     <Content Include="scripts\jquery-2.0.0.js" />
     <Content Include="scripts\jquery-2.0.0.min.js" />
+    <Content Include="scripts\lodash.core.js" />
+    <Content Include="scripts\lodash.core.min.js" />
+    <Content Include="scripts\lodash.js" />
+    <Content Include="scripts\lodash.min.js" />
+    <Content Include="scripts\ng-lodash.min.js" />
     <Content Include="scripts\ngDialog.js" />
     <Content Include="scripts\ngDialog.min.js" />
     <Content Include="scripts\q.js" />

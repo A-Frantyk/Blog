@@ -11,6 +11,7 @@
                     privateData: true
                 }
             })
+
         .when('/Home', {
             templateUrl: '/Views/Home.html',
             controller: 'HomeController',
