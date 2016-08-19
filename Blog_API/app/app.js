@@ -43,6 +43,4 @@
         authService.fillAuthData();
     }]);
 
-    //myApp.value('ServerURL', 'http://localhost:51393/');
-
 })();

@@ -201,15 +201,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\additionScripts\ActiveNavLink.js" />
-    <Content Include="app\additionScripts\WritesPanel.js" />
+    <Content Include="app\aoutput\controllers.js" />
+    <Content Include="app\aoutput\controllers.min.js">
+      <DependentUpon>controllers.js</DependentUpon>
+    </Content>
     <Content Include="app\app.js" />
     <Content Include="app\appConsts.js" />
     <Content Include="app\Components\StartPageComponent.js" />
+    <Content Include="app\Components\StartPageComponent.min.js">
+      <DependentUpon>StartPageComponent.js</DependentUpon>
+    </Content>
     <Content Include="app\Controllers\HomeController.js" />
     <Content Include="app\Controllers\IndexController.js" />
     <Content Include="app\Controllers\LoginController.js" />
     <Content Include="app\Controllers\WritesController.js" />
     <Content Include="app\Interceptors\authInterceptorService.js" />
+    <Content Include="app\Interceptors\authInterceptorService.min.js">
+      <DependentUpon>authInterceptorService.js</DependentUpon>
+    </Content>
+    <Content Include="app\output\all.js" />
+    <Content Include="app\output\controllers.js" />
+    <Content Include="app\output\controllers.min.js">
+      <DependentUpon>controllers.js</DependentUpon>
+    </Content>
+    <Content Include="app\output\interceptors.js" />
+    <Content Include="app\output\interceptors.min.js">
+      <DependentUpon>interceptors.js</DependentUpon>
+    </Content>
+    <Content Include="app\output\modules.js" />
+    <Content Include="app\output\modules.min.js">
+      <DependentUpon>modules.js</DependentUpon>
+    </Content>
+    <Content Include="app\output\services.js" />
+    <Content Include="app\output\services.min.js">
+      <DependentUpon>services.js</DependentUpon>
+    </Content>
     <Content Include="app\Services\authService.js" />
     <Content Include="app\Services\CommentsService.js" />
     <Content Include="app\Services\HttpFactory.js" />
@@ -228,6 +254,10 @@
     <Content Include="Content\ngDialog-theme-default.css" />
     <Content Include="Content\ngDialog.css" />
     <Content Include="Content\ngDialog.min.css" />
+    <Content Include="Content\output\stylesheet.css" />
+    <Content Include="Content\output\stylesheet.min.css">
+      <DependentUpon>stylesheet.css</DependentUpon>
+    </Content>
     <Content Include="Content\stylesheet.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -294,6 +324,10 @@
     <None Include=".bin\git.cmd" />
     <None Include=".bin\node.cmd" />
     <Content Include="scripts\angular-local-storage.min.js.map" />
+    <None Include="bundleconfig.json" />
+    <Content Include="bundleconfig.json.bindings">
+      <DependentUpon>bundleconfig.json</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Blog.pubxml" />
     <None Include="scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="scripts\i18n\angular-locale_aa-dj.js" />

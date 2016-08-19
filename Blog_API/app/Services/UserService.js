@@ -1,16 +1,16 @@
-﻿(function () {
-    'use strict'
+﻿//(function () {
+//    'use strict'
 
-    angular.module("myApp")
-           .service("UserService", UserService);
+//    angular.module("myApp")
+//           .service("UserService", UserService);
 
-    function UserService($q, HttpFactory, API_URL) {
+//    function UserService($q, HttpFactory, API_URL) {
 
-        this.GetUser = function () {
+//        this.GetUser = function () {
 
-        }
+//        }
 
-    };
+//    };
 
-    UserSerivce.$inject = [];
-})();
+//    UserSerivce.$inject = [];
+//})();

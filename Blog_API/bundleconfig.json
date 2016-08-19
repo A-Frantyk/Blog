@@ -1,0 +1,42 @@
+[
+  {
+    "outputFileName": "app/output/modules.js",
+    "inputFiles": [
+      "app/*.js" 
+    ]
+  },
+  {
+    "outputFileName": "app/output/interceptors.js",
+    "inputFiles": [
+      "app/Interceptors/authInterceptorService.js"
+    ]
+  },
+  {
+    "outputFileName": "app/output/services.js",
+    "inputFiles": [
+      "app/Services/*.js"
+    ]
+  },
+  {
+    "outputFileName": "app/output/controllers.js",
+    "inputFiles": [
+      "app/Controllers/*.js"
+    ]
+  },
+  {
+    "outputFileName": "content/output/stylesheet.css",
+    "inputFiles": [
+      "content/bootstrap.css",
+      "content/font-awesome.css",
+      "content/ngDialog.css",
+      "content/stylesheet.css",
+      "content/ui-bootstrap-csp.css"
+    ]
+  },
+  {
+    "outputFileName": "app/output/all.js",
+    "inputFiles": [
+      "scripts/*.js"
+    ]
+  }
+]
