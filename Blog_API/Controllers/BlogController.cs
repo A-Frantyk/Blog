@@ -32,7 +32,7 @@ namespace Blog_API.Controllers
 
             var result = query.ToList().Select(a => Factory.Create(a));
 
-            return result.ToList();
+            return result.AsEnumerable();
         }
         
         [HttpGet]

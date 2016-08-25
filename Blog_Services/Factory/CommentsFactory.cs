@@ -56,6 +56,7 @@ namespace Blog_Services.Factory
                 throw new NotSupportedException("This operation cannot be supported for this object!!!");
             }
         }
+        
 
         #region Parse for edit and add methods
 

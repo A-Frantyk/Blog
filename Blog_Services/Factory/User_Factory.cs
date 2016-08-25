@@ -63,6 +63,8 @@ namespace Blog_Services.Factory
             }
         }
 
+        
+
         #region Parse for add and edit methods
 
         private User ParseForAdd(UserDTO userDtoObj)

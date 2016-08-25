@@ -56,7 +56,7 @@ namespace Blog_Services.Factory
                 throw new NotSupportedException("This operation cannot be supported for this object!!!");
             }
         }
-
+        
         #region for edit and parse for add methods
 
         private Blog ParseForAdd(BlogDTO blogDtoObj)

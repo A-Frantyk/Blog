@@ -11,15 +11,6 @@
 		var likes = [{}];
 
 		var Writes = [{
-			write_Number: 0,
-			topic_Number: 0,
-			title: null,
-			description: null,
-			author: 0,
-			date: null,
-			time: null,
-			author_Name: null,
-			author_LastName: null
 		}];
 
 		$scope.current_Topic = localStorage.getItem(currentTopicName);
@@ -30,15 +21,11 @@
 		$scope.$watch(function () {
 			return ShareTopic.getTopicId();
 		},function (value) {
-			var writesAuthors = [{ user_Number: 0 }];
-
             WriteServices.GetWritesByTopic(value)
 						 .then(function (response) {
 						 	Writes = response;
 
 						 	$scope.Writes = Writes;
-						 	$scope.writesAuthors = writesAuthors;
-						 	$scope.likes = likes;
 						 })
 						 .catch(function (error) {
 							console.log(error);

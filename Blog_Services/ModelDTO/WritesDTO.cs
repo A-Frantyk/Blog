@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog_Entity.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,5 +32,7 @@ namespace Blog_Services.ModelDTO
         public List<CommentsDTO> Comments { get; set; }
 
         public List<LikesDTO> Likes { get; set; }
+
+        public UserDTO AuthorFullInfo { get; set; }
     }
 }
