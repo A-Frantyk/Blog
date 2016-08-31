@@ -12,7 +12,6 @@ namespace Blog_Entity.Model
     {
         public Comments()
         {
-            Likes = new HashSet<Likes>();
         }
 
         [Key]
@@ -23,7 +22,5 @@ namespace Blog_Entity.Model
         public int? User_Number { get; set; }
 
         public int? Writes_Number { get; set; }
-
-        public ICollection<Likes> Likes { get; set; }
     }
 }

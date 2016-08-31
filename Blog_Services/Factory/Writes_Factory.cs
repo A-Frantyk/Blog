@@ -38,8 +38,7 @@ namespace Blog_Services.Factory
                 Time = writes.Time,
 
                 AuthorFullInfo = LoadUserData(writes.Author).Result,
-                Comments = LoadComments(writes.Write_Number).Result,
-                Likes = LoadLikes(writes.Write_Number).Result
+                Comments = LoadComments(writes.Write_Number).Result
             };
 
             return writesDTO;
@@ -150,22 +149,6 @@ namespace Blog_Services.Factory
                 var loadedItem = await _unit.CommentsItemRepository.Get(a => a.Writes_Number == writeId);
                 var commentsFactory = new CommentsFactory(_unit);
                 var result = loadedItem.Select(a => commentsFactory.Create(a));
-
-                return result.ToList();
-            }
-            else
-            {
-                return null;
-            }
-        }
-        
-        private async Task<List<LikesDTO>> LoadLikes(int? writeId)
-        {
-            if(writeId != 0 && writeId != null)
-            {
-                var loadedData = await _unit.LikesItemRepository.Get(a => a.Write_Number == writeId);
-                var likesFactory = new LikesFactory(_unit);
-                var result = loadedData.Select(a => likesFactory.Create(a));
 
                 return result.ToList();
             }

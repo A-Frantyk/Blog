@@ -11,7 +11,6 @@ namespace Blog_Services.ModelDTO
         public WriteFullInfoDTO()
         {
             Comments = new List<CommentsDTO>();
-            Likes = new List<LikesDTO>();
         }
 
         public int Write_Number { get; set; }
@@ -34,7 +33,6 @@ namespace Blog_Services.ModelDTO
 
 
         public List<CommentsDTO> Comments { get; set; }
-
-        public List<LikesDTO> Likes { get; set; }
+        
     }
 }

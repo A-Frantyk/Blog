@@ -18,8 +18,6 @@ namespace Blog_Services.UnitOfWork
 
         IGenericRepository<Comments> CommentsItemRepository { get; }
 
-        IGenericRepository<Likes> LikesItemRepository { get; }
-
         IGenericRepository<User> UserItemRepository { get; }
 
         IGenericRepository<UserCredentials> UserCredentialsItemRepository { get; }

@@ -19,7 +19,6 @@ namespace Blog_Services.UnitOfWork
         private IGenericRepository<Blog> blogItemRepository;
         private IGenericRepository<Writes> writesItemsRepository;
         private IGenericRepository<Comments> commentsItemRepository;
-        private IGenericRepository<Likes> likesItemsRepository;
         private IGenericRepository<Topic> topicItemRepository;
         private IGenericRepository<User> userItemRepository;
         private IGenericRepository<UserCredentials> userCredentialsItemRepository;
@@ -81,20 +80,7 @@ namespace Blog_Services.UnitOfWork
                 return commentsItemRepository;
             }
         }
-
-        public IGenericRepository<Likes> LikesItemRepository
-        {
-            get
-            {
-                if (this.likesItemsRepository == null)
-                {
-                    this.likesItemsRepository = new GenericRepository<Likes>(context);
-                }
-
-                return likesItemsRepository;
-            }
-        }
-
+        
         public IGenericRepository<User> UserItemRepository
         {
             get

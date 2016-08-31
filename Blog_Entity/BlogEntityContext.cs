@@ -25,8 +25,6 @@ namespace Blog_Entity
 
         public DbSet<Topic> Topics { get; set; }
 
-        public DbSet<Likes> Likes { get; set; }
-
         public DbSet<Writes> Writes { get; set; }
 
         public DbSet<UserCredentials> UserCredentials { get; set; }

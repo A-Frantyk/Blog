@@ -11,7 +11,6 @@ namespace Blog_Entity.Model
     {
         public Writes()
         {
-            Likes = new HashSet<Likes>();
         }
 
         [Key]
@@ -28,8 +27,6 @@ namespace Blog_Entity.Model
         public DateTime? Date { get; set; }
 
         public DateTime? Time { get; set; }
-
-        public ICollection<Likes> Likes { get; set; }
 
         public virtual Topic Topics { get; set; }
     }

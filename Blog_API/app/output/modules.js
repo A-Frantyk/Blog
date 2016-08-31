@@ -78,11 +78,6 @@
                 GetCommentById: 'http://localhost:51393/api/comment/',
                 GetCommentByWriteId: 'http://localhost:51393/api/comment/byWriteId/',
                 EditComment: 'http://localhost:51393/api/comment/edit',
-                AddComment: 'http://localhost:51393/api/comment/add',
-
-                GetLikes: 'http://localhost:51393/api/like/all',
-                GetLikesByWriteId: 'http://localhost:51393/api/like/byWriteId/',
-                GetLikesByComment: 'http://localhost:51393/api/like/commentId',
-                AddLike: 'http://localhost:51393/api/like/add',
+                AddComment: 'http://localhost:51393/api/comment/add'
             });
 })();

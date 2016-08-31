@@ -53,3 +53,4 @@ D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\Newtonsoft.Json.xml
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\System.Net.Http.Formatting.xml
 D:\.Net sample projects\Blog_Entity\Blog_Entity\bin\Debug\System.Web.Http.xml
 D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.csprojResolveAssemblyReference.cache
+D:\.Net sample projects\Blog_Entity\Blog_Entity\obj\Debug\Blog_Entity.Migrations.deleteLikesTable.resources
