@@ -137,10 +137,6 @@
     <Compile Include="Migrations\201608021416505_AddRolesTable_WithRelationship_withUsers-table.Designer.cs">
       <DependentUpon>201608021416505_AddRolesTable_WithRelationship_withUsers-table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs" />
-    <Compile Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.Designer.cs">
-      <DependentUpon>201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Blog.cs" />
     <Compile Include="Model\Comments.cs" />
@@ -207,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608021416505_AddRolesTable_WithRelationship_withUsers-table.resx">
       <DependentUpon>201608021416505_AddRolesTable_WithRelationship_withUsers-table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201608050848529_addConfirmationPasswordField_withSomeConfiguration.resx">
-      <DependentUpon>201608050848529_addConfirmationPasswordField_withSomeConfiguration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -46,7 +46,7 @@
 })();
 
 (function () {
-    angular.module('CONST', [])
+	angular.module('CONST', [])
             .constant('API_URL', {
 
                 Writes: 'http://localhost:51393/api/write/all/',
