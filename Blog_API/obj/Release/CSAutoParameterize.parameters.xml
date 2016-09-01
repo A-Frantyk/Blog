@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="BlogEntityContext-Web.config Connection String" description="BlogEntityContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=ASCOLTA;Initial Catalog=Blog_Test;Integrated Security=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\\.Net\ sample\ projects\\Blog_Entity\\Blog_API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BlogEntityContext']/@connectionString" />
+  </parameter>
+</parameters>

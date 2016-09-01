@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>Blog</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="../Content/bootstrap.min.css" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <!--<link rel="stylesheet" href="../Content/font-awesome.min.css">
+    <link rel="stylesheet" href="../Content/stylesheet.css">-->
+
+    <link href="../Content/output/stylesheet.min.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
+
+    <script src="../scripts/lodash.min.js"></script>
+    
+    <!--<script src="../scripts/bootstrap.min.js"></script>-->
+    <script src="../scripts/angular.min.js"></script>
+
+    <!--<script src="../app/appConsts.js"></script>
+    <script src="../app/app.js"></script>-->
+
+    <script src="../scripts/angular-local-storage.min.js"></script>
+    <script src="../scripts/angular-resource.min.js"></script>
+    <script src="../scripts/AngularUI/ui-router.min.js"></script>
+    <script src="../scripts/angular-route.min.js"></script>
+    <script src="../scripts/ngDialog.min.js"></script>
+    <script src="../scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="../scripts/angular-animate.min.js"></script>
+
+    <!--<script src="../app/output/all.js"></script>-->
+
+    <script src="../app/output/modules.min.js"></script>
+    <script src="../app/output/interceptors.min.js"></script>
+    <script src="../app/output/controllers.min.js"></script>
+    <script src="../app/output/services.min.js"></script>
+    
+
+    <!--<script src="../app/appConsts.js"></script>
+    <script type="text/javascript" src="../app/app.js"></script>-->
+    
+    <!--<script src="../app/Controllers/LoginController.js"></script>-->
+
+    <!--<script src="../app/Services/HttpFactory.js"></script>
+    <script src="../app/Services/IndexServices.js"></script>
+    <script src="../app/Controllers/IndexController.js"></script>
+    <script src="../app/Controllers/HomeController.js"></script>
+    <script src="../app/Controllers/WritesController.js"></script>
+    <script src="../app/Services/HomeServices.js"></script>
+    <script src="../app/Services/TopicServices.js"></script>
+    <script src="../app/Services/WriteServices.js"></script>
+    <script src="../app/Services/ShareTopicService.js"></script>
+    <script src="../app/Interceptors/authInterceptorService.js"></script>
+    <script src="../app/Services/authService.js"></script>
+    <script src="../app/Services/LoginServices.js"></script>
+    <script src="../app/Services/LikesService.js"></script>-->
+    
+    <base href="/">
+</head>
+<body ng-app="myApp">
+    <div ng-controller="IndexController">
+        <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+            <div class="container">
+                <div class="row m-b-0">
+
+                    <!-- left side of the navigation bar -->
+                    
+                    <ul class="nav navbar-nav">
+                        
+                        <li class="nav-item" ng-repeat="topic in Topics">
+                            <a class="nav-link" href="Index#/write/all" ng-click="putTopicInfo(topic.topic_Title, topic.topic_Number)">{{topic.topic_Title}}</a>
+                        </li>
+                    </ul>
+                    <a class="nav-link" href="/"><i class="fa fa-home fa-fw" style="font-size: 24px; margin: 5px 0 0 10px;"></i></a>
+                    
+                    <!-- Right side of the navigation bar -->
+                    <a class="btn btn-primary pull-sm-right" ng-hide="authentication.isAuth">Signup</a>
+                    <a class="btn btn-primary pull-sm-right" ng-hide="!authentication.isAuth" ng-click="logOut()">Logout</a>
+
+                    <button class="btn btn-primary pull-sm-right" data-target="#log" data-toggle="modal" ng-hide="authentication.isAuth">Login</button>
+                    <!--data-target="#log" data-toggle="modal"-->
+                    <p ng-hide="!authentication.isAuth" class="btn btn-primary pull-sm-right">Welcome {{authentication.userName}}</p>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <div ng-view></div>
+
+
+        <hr style="margin-bottom: -5px;" />
+        <!-- footer -->
+        <footer class="container" id="wrap">
+            <div class="row">
+                <div class="col-md-7">
+                    <small>&copy; 2016 {{User.name + ' ' + User.last_Name}} Simple Blog, @{{User.last_Name}}</small>
+                </div>
+                <div class="col-md-5 p-b-3">
+                    <ul class="social-network social-circle">
+                        <li><a href="" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="" class="icoVk" title="VK"><i class="fa fa-vk"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer> <!-- /footer -->
+
+        <!-- Login form -->
+        <div id="log" class="modal hide fade" style="display: none; ">
+            <div class="modal-dialog modal-content" role="document">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">
+                        <h4 class="modal-title" style="color: black;">Log in to the blog</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="name" class="form-control-label p-l-0" style="color: black;">Name or Email</label>
+                            <input type="text" class="form-control" id="name" ng-model="loginData.userName" required autofocus>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="mail" class="form-control-label p-l-0" style="color: black;">Password</label>
+                            <input type="password" class="form-control form-control-danger" id="mail" ng-model="loginData.password" required>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="login()">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /Login form -->
+
+        <!-- Signup form -->
+
+        <!--<div id="log" class="modal hide fade" style="display: none; ">
+            <div class="modal-dialog modal-content" role="document">
+
+                <div class="modal-header">  
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">
+                        <h4 class="modal-title" style="color: black;">Signup to the blog</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="name" class="form-control-label p-l-0" style="color: black;">Name or Email</label>
+                            <input type="text" class="form-control" id="name" ng-model="loginData.userName" required autofocus>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="mail" class="form-control-label p-l-0" style="color: black;">Password</label>
+                            <input type="password" class="form-control form-control-danger" id="mail" ng-model="loginData.password" required>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary btn-lg" data-dismiss="modal" ng-click="login()">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+
+        <!--/Signup form -->
+
+
+    </div>
+    <!--<script src="../app/additionScripts/WritesPanel.js"></script>-->
+    <script src="../app/additionScripts/ActiveNavLink.js"></script>
+</body>
+</html>

@@ -153,3 +153,8 @@ D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Owin.Security.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Owin.Security.Cookies.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Owin.Security.OAuth.xml
 D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Http.Owin.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Owin.Cors.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Cors.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Http.Cors.dll
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\Microsoft.Owin.Cors.xml
+D:\.Net sample projects\Blog_Entity\Blog_API\bin\System.Web.Http.Cors.xml
